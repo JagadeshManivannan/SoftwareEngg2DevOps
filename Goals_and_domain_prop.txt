@@ -1,0 +1,39 @@
+GOALS
+
+Assignment 1:
+[G] The user must be able to register to the system. 
+[G] The system must be able to generate a password and send it to the user who just got registrated
+
+Assignment 2: SAME
+[G] Registered users must be able to find the locations of available cars within a certain distance from their current locations or from a specified address
+
+Assignment 3: SAME
+[G] Among the available cars in a certain geographical region, users must be able to reserve a single car for up to one hour before they pick it up
+
+Assignment 4: SAME
+[G] If a car is not picked up within one hour from the reservation, the system tags the car as available again, and the reservation expires; the user pays a fee of 1 eur
+
+Assignment 5: SAME
+[G] A user that reaches a reserved car must be able to tell the system it's nearb, so the system unlocks the car and the user may enter
+
+Assignment 6:
+[G] the system starts charging the user as soon as the engine ignites
+[G] the user is notified of the current charges through a screen on the car
+
+Assignement 7:
+[G] the system stops charging the user as soon as he park the car in a safe area and leaves it
+[G] the system must automatically lock the car every time a user leaves it
+
+Assignment A:
+[G] The system must be able to know how many people are in the car
+[G] Assignment A itself
+
+[G] Assignments B,C,D,E themselves
+
+
+
+
+domain properties
+
+user infos are always valid
+location given by the GPS is always accurate
