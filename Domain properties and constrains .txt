@@ -1,0 +1,29 @@
+DOMAIN PROPERTIES
+user infos are always valid
+location given by the GPS is always accurate
+user can reserve just a car per time
+-TO BE CONTINUED TOGHETHER WITH ALLOY PART-
+
+REGULATORY POLICIES
+While waiting for future conventions, at the moment toll and handicap parkings are forbidden. Timed parkings are also forbidden, since the user can't ensure compliance with the deadline once left the car.
+During the registration the system recive the user's permission to get his position and it has to handle sensible data according to the privacy law. 
+To avoid spam the system can only use messages and notifications if strictly required to the proper operation of the system.
+
+HARDWARE LIMITATIONS
+User's mobile device:
+- Connection speed >= 3G
+- GPS
+- Enough space to install the app
+Car: -TO DECIDE IF THIS IS THE RIGHT PLACE-
+- GPS
+- weight sensors x4
+- Fast internet connection
+- Computer to interact with sensors and servers
+
+PARALLEL OPERATION
+The server supports parallel operations from different users at the same time -THIS IS SO OBVIOUS THAT I DON'T KNOW IF ITS NECESSARY-
+
+INTERFACES TO OTHER APPLICATIONS
+-the sms service, if needed during the registration. to discuss toghether-
+
+
