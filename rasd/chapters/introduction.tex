@@ -1,9 +1,80 @@
 \chapter{Introduction}
 
 \section{Description of the given problem}
+
 \section{Goals}
+\begin{enumerate}[label={[G\arabic*]},labelindent=\parindent,leftmargin=*]
+	\item \label{goal:registration} Registration of a user to the system
+	\item \label{goal:cars_location} Finding the locations of the available cars
+	\item \label{goal:reservation} Reservation of a car
+	\item \label{goal:expiration} Expiration of reservation and penalization
+	\item \label{goal:entry} Entry of registered user into the car
+	\item \label{goal:charging} Start charging and notifying the registered user
+	\item \label{goal:car_locking} Stop charging the registered user and lock the car
+	\item \label{goal:safe_areas} Safe areas for parking the reserved cars
+	\item \label{goal:passengers} Detection of extra passengers and applying discount
+	\item \label{goal:battery} Detection of the battery status and applying discount
+	\item \label{goal:special_areas} Detection of special parking areas and applying discount
+	\item \label{goal:constraints} Checking parking and battery constraints and penalization
+\end{enumerate}
+
 \section{Domain properties}
+\begin{itemize}
+	\item User's data are always valid
+	\item Location reported by the GPS is always accurate
+	\item Every user can reserve just a car per time
+\end{itemize}
+
 \section{Glossary}
+
+\subsection{Definitions}
+\begin{itemize}
+	\item \emph{Car}: vehicle provided by the service 
+	\item \emph{User}: person with a valid driving license registered to the service
+\end{itemize}
+
+\subsection{Acronyms}
+\begin{itemize}
+	\item \emph{GPS}: Global Positioning System
+	\item \emph{OS}: Operating System, related both to desktop and mobile platforms
+	\item \emph{PIN}: Personal Identification Number
+	\item \emph{RASD}: Requirements Analysis and Specification Document
+	\item \emph{W3C}: World Wide Web Consortium
+\end{itemize}
+
 \section{Constrains}
+
+\subsection{Regulatory policies}
+While waiting for future conventions, at the moment toll and handicap parkings are forbidden. Timed parkings are also forbidden, since the user cannot ensure compliance with the deadline once left the car.
+
+During the registration the system receive the user's permission to get his position and it has to handle sensible data according to the privacy law. To avoid SPAM the system can only use messages and notifications if strictly required to the proper operation of the system.
+
+\subsection{Hardware limitations}
+\begin{itemize}
+	\item User's mobile device:
+\begin{itemize}
+	\item Connection speed \(\geqslant\) 3G
+	\item GPS
+	\item Enough memory available to install the app
+\end{itemize}
+	\item Car:
+	\begin{itemize}
+	\item GPS
+	\item Weight sensor for each seat
+	\item Fast Internet connection
+	\item On-board computer with integrated system
+\end{itemize}
+\end{itemize}
+
+\subsection{Interfaces to other applications}
++++++ TO DISCUSS TOGETHER +++++
+
+\subsection{Parallel operation}
++++++ TO DISCUSS TOGETHER +++++
+
 \section{Proposed system}
+
 \section{Reference documents}
+The Requirements Analysis and Specification Document has been composed following the indications and examples reported in the document ISO/IEC/ IEEE 29148, released by World Wide Web Consortium, containing provisions for the processes and products related to the engineering of requirements for systems and software products and services throughout the life cycle.
+
+With regards to the course named Software Engineering II and held by professors Luca Mottola and Elisabetta Di Nitto (Politecnico di Milano, a.~y. 2016/17), the document conforms to the guidelines provided during the lectures and within the material of the course.
