@@ -1,6 +1,13 @@
 \chapter{Introduction}
 
-\section{Description of the given problem}
+\section{Purpose}
+The Requirement Analysis and Specifications Document aims to provide in detail every aspect of the service PowerEnJoy, including its components, goals, constraints, functional and non-functional requirements. Use cases and scenarios for all the users involved will be provided as well to conform the product's objectives to the real world.
+
+The last part of this document is reserved to the formalization of some features of the system involving the utilization of Alloy, a declarative specification language which provides a structural modeling tool based on first-order logic.
+
+The high-level functionalities described in the RASD are intended for both developers and project managers. The former have to implement and test the functionalities while the latter must examine whether every requirement has been respected. It may also be useful to users in order to best take advantage of the service.
+
+\section{Description of the problem}
 
 \section{Goals}
 \begin{enumerate}[label={[G\arabic*]},labelindent=\parindent,leftmargin=*]
@@ -29,7 +36,10 @@
 
 \subsection{Definitions}
 \begin{itemize}
-	\item \emph{Car}: vehicle provided by the service 
+	\item \emph{Car}: electric vehicle provided by the service
+	\item \emph{Guest} or \emph{Guest User}: person not registered to the service
+	\item \emph{Registered User}: see \emph{User}
+	\item \emph{Safe area}: set of parking spots where a user can leave a car without penalization 
 	\item \emph{User}: person with a valid driving license registered to the service
 \end{itemize}
 
@@ -72,9 +82,7 @@ During the registration the system receive the user's permission to get his posi
 \subsection{Parallel operation}
 +++++ TO DISCUSS TOGETHER +++++
 
-\section{Proposed system}
-
 \section{Reference documents}
-The Requirements Analysis and Specification Document has been composed following the indications and examples reported in the document ISO/IEC/ IEEE 29148, released by World Wide Web Consortium, containing provisions for the processes and products related to the engineering of requirements for systems and software products and services throughout the life cycle.
+The Requirements Analysis and Specification Document has been composed following the indications and examples reported in the document ISO/IEC/ IEEE 29148, released by W3C, containing provisions for the processes and products related to the engineering of requirements for systems and software products and services throughout the life cycle.
 
 With regards to the course named Software Engineering II and held by professors Luca Mottola and Elisabetta Di Nitto (Politecnico di Milano, a.~y. 2016/17), the document conforms to the guidelines provided during the lectures and within the material of the course.
