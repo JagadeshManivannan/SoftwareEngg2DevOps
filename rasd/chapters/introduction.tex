@@ -8,6 +8,9 @@ The last part of this document is reserved to the formalization of some features
 The high-level functionalities described in the RASD are intended for both developers and project managers. The former have to implement and test the functionalities while the latter must examine whether every requirement has been respected. It may also be useful to users in order to best take advantage of the service.
 
 \section{Description of the problem}
+The product described in this RASD is PowerEnJoy, a car-sharing service which offers to its users exclusively electric cars. It includes the common functionalities of its category: permitting to registered users to obtain the position of all the available cars, reserving one within a certain amount of time and continuously displaying the up-to-the-minute cost of the ride are just few of them. Moreover, PowerEnJoy stimulates users to behave virtuously towards to the ecosystem by applying various type of discounts under specific conditions.
+
+There are four software components that constitute the PowerEnJoy project. First, a back-end server provides APIs in order to simplify the communication related to the interactions of a user with the cars. Then two applications are available for a user to allow him/her the employment of every functionality: a web-based application (intended for visualization from desktop) and a mobile one. Lastly, every vehicle will be equipped with an on-board computer, used by the driver to manage the ride with the available options and see real-time information related to it, such as the time spent, the distance traveled and the total amount.
 
 \section{Goals}
 \begin{enumerate}[label={[G\arabic*]},labelindent=\parindent,leftmargin=*]
@@ -37,14 +40,15 @@ The high-level functionalities described in the RASD are intended for both devel
 \subsection{Definitions}
 \begin{itemize}
 	\item \emph{Car}: electric vehicle provided by the service
-	\item \emph{Guest} or \emph{Guest User}: person not registered to the service
-	\item \emph{Registered User}: see \emph{User}
+	\item \emph{Guest} or \emph{Guest user}: person not registered to the service
+	\item \emph{Registered user}: see \emph{User}
 	\item \emph{Safe area}: set of parking spots where a user can leave a car without penalization 
 	\item \emph{User}: person with a valid driving license registered to the service
 \end{itemize}
 
 \subsection{Acronyms}
 \begin{itemize}
+	\item \emph{API}: Application Programming Interface
 	\item \emph{GPS}: Global Positioning System
 	\item \emph{OS}: Operating System, related both to desktop and mobile platforms
 	\item \emph{PIN}: Personal Identification Number
