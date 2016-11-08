@@ -1,0 +1,75 @@
+guest signup
+Actors: unregistrered user
+Entry conditions: user must not be registered
+Flow of events:
+-the user arrives at the home page of the mobile app or desktop version
+- the user clicks on signup
+- the user inputs its personal datas, including one valid ID and ---tessera sanitaria---
+- the user must confirm the registration browsing a link sent by the system to the email address specified by the user
+- the user can now browse the app but is not yet abilitate to take rides
+Exit conditions: The user's account is available even if the service is disabled
+Exceptions: The mail specified by the user was wrong, the user must fill the registration again with the correct email
+
+
+user login
+Actors: registered user
+Entry conditions: the user must have a confirmed account
+Flow of events:
+- the user arrives at the home page of the mobile app or desktop version
+- the user clicks on login
+- the user inputs its credentials in the drop down menu
+- the user clicks on login
+- the user is redirected to his personal page
+Exit conditions: The user is successfully redirected to his personal page
+Exceptions: The credentials specified by the user were wrong. The user is notified and he can input them again
+
+
+user reserves an available car
+Actors: registered user
+Entry conditions: the user must have an abilitated account and be logged in
+Flow of events:
+- the user arrives at his personal page of the mobile app or desktop version
+- the user cliks "find available car" to full size the map
+- the user selects a car and click reserve
+- the user is notified with both sms and app notifications containing informations about the reservation and the istructions to abort it
+Exit conditions: The user gets notified by the system
+Exceptions: The reservation didn't work, the user is notified about the reason
+
+
+
+user gets in the car
+Actors: registered user
+Entry conditions: the user must be logged in, have made a reservation, be close to the car, have his smartphone with him
+Flow of events:
+- the user asks the system to unlock the car
+- the system checks the user's position through the GPS
+- if the user's GPS position matches with the car's one, the car is unlocked
+- the user can specify the destination and whether to abilitate the Discount Option
+- the user ignites the engine and the system starts charging
+Exit conditions: The user starts the ride
+Exceptions: The two GPS positions didn't match and the user is notified to get closer to the car
+
+
+
+user parks the car
+Actors: registered user
+Entry conditions: the user is about to finish a ride
+Flow of events:
+- the user looks for an available parking slot while checking on the app's map that it's not forbidden by the service's policies
+- the user parks the car
+- the user stops the engine and the system stops charging
+- the user leaves the car 
+- if the parking area isn't forbidden the car gets locked by the system, otherwise the user will be asked to get back in the car and change parking area and this use case restart from the beginning
+- the user gets notified about the charging
+Exit conditions: The user gets notified by the system and the car is locked
+Exceptions: If the user parks in a low GPS coverage area, the system will notify the user in time. The same if the user parks in a non-safe area. If the user doesn't get back in the car within X minutes, the car gets locked and the user gets penalities
+
+
+user gets notified about account confirmation
+Actors: registered user
+Entry conditions: the user must have a confirmed account
+Flow of events:
+- once the staff successfully checked the profile the user gets notified with both an sms and a notifications in the app, and he is now able to use the service
+Exit conditions: The user's account is abilitated
+Exceptions: If the staff rejects the account validation, the staff notify the user with the reasons
+
