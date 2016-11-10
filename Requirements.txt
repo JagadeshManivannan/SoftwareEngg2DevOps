@@ -1,0 +1,218 @@
+POWER ENJoy
+
+
+3.REQUIREMENTS
+
+The following requirements have been elicited with respect to the domain properties and assumptions mentioned above in order to satisfy the goals:
+
+  * Registration of User to the system:
+		-The system needs to provide mandatory sign up and payment options for the guest users who wants to register to use the car sharing service.
+		-Once the payment is successful and the guest user is registered, the registered user receives a password that can be used to access (login into) the system.
+
+  * Finding the location of the available cars:
+		-The system needs to provide the EXACT location of the cars that are available within a certain distance either from the current location of the registered users or from a specified address given(entered) by the registered users.
+
+  * Reservation of a car:
+		-The system provides provision such that the registered users must be able to reserve only a single car among the available cars in a certain geographical region for up to one hour before they pick it up.
+		
+  * Expiry of reservation and penalization:
+		-The system checks if a reserved car is picked-up within one hour.
+		-If not, the system tags the car as available again AND the reservation expires.
+		-The system penalizes the registered user who made the reservation and did not pick the reserved car within an hour, by making him to pay a fee of 1 EUR.
+
+
+  * Entry of registered user into the car:
+		-The system must be able to identify (communicate with) the registered user when he/she is nearby the reserved car.
+		-The system unlocks the reserved car AND allows the registered user to enter it after identification of registered user as mentioned in the previous point.
+	
+  * Starting to charge and notify the registered user:
+		-The system starts charging the registered user for a given amount of money per minute as soon as the engine is ignited.
+		-The system must be able to notify the current charges to the registered user through a screen on the reserved car.
+
+  *  Stop charging the registered user and lock the car:
+		-The system must stop charging the registered user as soon as the reserved car is parked in a safe area and the registered user exits the reserved car.
+		-The system must be able to lock the reserved car automatically at this point after the above operation is successfully done.
+* Safe areas for parking the reserved cars:
+		The safe areas are defined by the systems as follows:
+•	The parking areas which are not private and located in the basement (underground).
+•	The parking area in which the GPS signals are not very low (the system must suggest the user in this case).
+
+In order to the above requirements, the system should incentivize/motivate the virtuous behaviors of the registered user by satisfying the following requirements:
+* Detection of extra passengers and applying discount:
+		-The system must detect if the registered user has taken at least two other passengers onto the reserved car. 
+		-The system must calculate and apply a discount of 10% on the last ride if the above-mentioned point is true or satisfied.
+
+
+
+* Detection of the battery status and applying discount:
+		-The system must detect the percentage of the battery charge that has been consumed in the reserved car by the registered user during the last ride.
+		-The system must calculate and apply a discount of 20% if the reserved car is left with no more than 50% of the battery empty.
+*Detection of special parking areas and applying discount:
+		-The system should detect if the reserved car is left in the special parking areas-where they can be recharged and the registered user takes care of plugging the car into the power grid.
+		-The system must calculate and apply a discount of 30% on the last ride if the above check is true or satisfied.
+
+*Checking constraints and penalization: 
+		-The system must check if either of the following conditions are true:
+•	The distance between the reserved car (parked after the ride) and the nearest power grid station is more than 3KM (Kilometers).
+•	The battery of the reserved car (parked after the ride) is consumed more than 80%.
+-The system must penalize the registered user by charging 30% more on the last ride if either of the two conditions mentioned above are true to compensate for the cost required to recharge the reserved car (parked after the ride).
+
+*Enabling of money saving option and ensuring even distribution of reserved cars:
+		-The system should provide a functionality to allow the registered user to enable the money saving option, upon which he/she can input his/her final destination.
+		-After receiving the inputs from the registered user, the system must provide information about the station where to leave the reserved car to get a discount.
+		-The system must also ensure uniform distribution of the reserved cars in the city based on both the destination of the registered user and on the availability of the power plugs at selected station.
+
+3.1 FUNCTIONAL REQUIREMENTS:
+	We have clearly elicited the requirements of the POWER ENJoy for which the functional requirements are stated as follows:
+•	Guest User: is allowed to
+o	Sign Up.
+•	Registered User: is allowed to 
+o	Login.
+o	Find the location of available cars.
+o	Select his/her final destination.
+o	Reserve an available car.
+o	Receive notification of the reservation expiry and penalty.
+o	Enter the reserved car (by communicating with the system).
+o	Receive notification of the current charges.
+o	Park the reserved car in safe areas.
+o	Take at least two other passengers onto the reserved car and avail discount.
+o	Minimize the consumption of the battery’s charge in the reserved car to avail discount.
+o	Park the reserved car in special parking areas and avail discount.
+o	Select (Enable) the money saving option to get discount.
+
+
+3.2 NON-FUNCTIONAL REQUIREMENTS:
+3.2.1 User Interface:
+	The user interface of our application is thought to be used via web as well as a mobile application. There are two sketches of the UI screen which are displayed below:
+ 
+The first screen is the HOME page where any guest user can see. It displays the sign up and login option; options like finding available cars, reserving an available car, money saving option, charge per km with current charge, status of the battery, discounts, safe areas and special parking areas. This is the HOME page of the desktop version.
+
+The second screen shows the features and option in a mobile application. The first picture in the below area shows the HOME page of the application before login. It shows the sign up and login option for the guest user. It also displays the availability of cars in nearby area through GPS.
+
+The below screen displays the screen after a registered user logins. It has options like: find the available cars, reserve a car, discounts, safe area,	special parking areas, money saving option, price per km with current charge.
+3.2.2 Documentation
+-	We will release the following documents in order to organize our work in each phase of the development process and keep in touch with the stakeholders.
+
+-	RASD, Requirement Analysis and Specification Document, which defines our goals and assumptions and contains an overall description of the system (using scenarios and use-cases) and the models describing requirements and specifications.
+
+-	DD, Design Document, which contains a functional description of the system using models such as UML diagrams.
+
+-	Installation manual, which explains how to deploy the web site.
+
+-	User manual, which explains users how to use the main functionalities of the web site.
+
+-	Testing report, which contains the results of the testing activity performed on a system developed by another group.
+
+-	Project reporting, which is the result of some analysis done on the project activity.
+
+3.2.3Architectural consideration
+
+We will use the following technologies:
+
+•	Apache with php (with laravel framework) as API server and task service
+
+•	Mysql as sql server to store data persistently, it is the same of the old system
+
+•	Apache server for static documents
+
+•	RESTFull and JSON for API communication over HTTP(S)
+
+•	Javascript (with angularJs framework), CSS and HTML to create respon-sive site that communicate to server using REST API. These files are got via HTTP(S)
+
+•	Modern browser with javascript and ajax support
+
+•	Java and swift respectively for android and iOS apps, using original SDK
+
+•	Internet connection for communication of data
+
+External rest APIs to send SMS
+
+4. SCENARIOS IDENTIFYING
+	Here are some possible scenarios of usage of this application.
+
+Scenario 1:
+	Nick wants to go to his friend’s wedding anniversary. He has come to know about the POWER ENJoy car sharing service through some advertisements. He visits the website for the first time. He realizes that he needs to become a registered user in order to reserve an available car. He decides to register in the website and becomes a registered user after filling the mandatory details (Driving license, Codice Fiscale, etc.) and completing the payment successfully. He receives his credentials (user ID, password) for further sign in. Without knowing about the benefits and constraints of the POWER ENJoy, he just reserves an available car and travels to his destination and ends his ride after parking the reserved car in a nearby area to the place of his destination. Fortunately, it turns out to be a safe parking area and he has left the car with 60% of battery. He is notified of the final price mentioning that he has received 20% discount. Nick leaves the reserved car happily.
+
+Scenario 2: 
+	After getting the know about the benefits and constraints from the website of POWER ENJoy, Nick wants to reserve a car to attend a meeting in his office. This time, two of his colleagues are there with him and he reserves a nearby available car. He takes a ride with two of his colleagues; reaches the destination with more than 50% of battery charge remaining; parks in a safe area and gets an overall discount for 30% by the system (10% for riding with at least two passengers and 20% for not draining the battery more than 50%). Nick leaves the reserved car happily.
+
+Scenario 3: 
+ Immediately after the scenario 2, Nick receives a telephone call saying that his wife is in maternity pain and he needs to take her to the hospital immediately. Meanwhile, the parked car (after Nick’s ride) is the only nearest car for him. He decides to open the car and then reserve it. Meanwhile, this parked car has been reserved by someone else and Nick is not even able to open the door of the parked car (since he was not able to reserve that car and hence the communication with that car is not possible). Finally, he searches for the other available cars and then takes a ride.
+
+Scenario 4: 
+	Frank is a registered user to the POWER ENJoy service. He wants to make a ride to his university which is very far from his home. Frank reserves an available car in POWER ENJoy and rides to his college where he parks the reserved car in a safe area but has consumed more than 80% of the battery. So, he is charged 30% more on his ride and Frank is notified about the final charge.
+
+Scenario 5:
+	Frank needs to take his girlfriend to a pub on a Saturday night. He decides to use the POWER ENJoy service. As he is a registered user, he reserves an available car. But his girlfriend arrives late. Also, so it has been more than an hour since he made the reservation and did not pick the reserved car. Hence he is charged or penalized with 1 EUR and the reservation he made has been expired. So, Frank needs to start the process again.
+
+
+Scenario 6:
+	James is a registered user to the POWER ENJoy service. He has gone to Lugano (Switzerland) for a business visit. He has found POWER ENJoy to be cheaper than the train and decides to reserve an available car from Lugano (Swiss) to Milan (Italy), which is a cross country travel. When he searches for the available cars to make a reservation, he is not able to spot any cars, in his geographical region as POWER ENJoy restricts cross country travel which are against its terms and conditions.
+
+Scenario 7:
+	James wants to save money and hence he activates the money saving option. As he is a registered user, he selects his destination and selects an available car. He is notified from the system about the station where he needs to park the reserved car in order to avail the discount. But, in a hurry, James leaves the reserved car in a safe area and ends the ride. Thus, he did not receive any discount in his final charge after the end of his ride.
+
+Scenario 8:
+Mr. Potter is a guest to the POWER ENJoy service and he wants to register himself to make a ride when he needs. He uploads all the mandatory documents in the webpage and registers himself after completing the payment successfully. He reserves an available car and travels more than the amount which he has paid while registering. He parks the reserved car in a safe area and ends his ride. Mr. Potter is notified by the system that he must pay the balance by three days from the end of the ride or else his documents (Driving license, codice fiscale, etc.) will be sent or notified to the local police, stating the issue and serious action will be taken against him as per the law. Also, he loses the privilege of being a prestigious member of POWER ENJoy and its services.
+
+
+
+Use Case Description:
+
+guest signup
+Actors: unregistrered user
+Entry conditions: user must not be registered
+Flow of events:
+- the user arrives at the home page of the mobile app or desktop version
+- the user clicks on signup
+- the user inputs its personal datas, including one valid ID and a valid drive license
+- the user must confirm the registration browsing a link sent by the system to the email address specified by the user
+- the system checks the profile and the input data are validated. 
+- the user must input in the app's homepage the 6 digit code sent by the system to the specified mobile number
+- the system validates the account, the user gets notified by sms and notification
+Exit conditions: The user's account is validated
+Exceptions: If the system rejects the input data, the user can find explainations in the app's home page, where he can input the missing data. If the user don't receive the sms he can ask the app to send it again. 
+
+
+user login
+Actors: registered user
+Entry conditions: the user must have a confirmed account
+Flow of events:
+- the user arrives at the home page of the mobile app or desktop version
+- the user clicks on login
+- the user inputs its credentials in the drop down menu
+- the user clicks on login
+- the user is redirected to his personal page
+Exit conditions: The user is successfully redirected to his personal page
+Exceptions: The credentials specified by the user were wrong. The user is notified and he can input them again
+
+
+user reserves an available car
+Actors: registered user
+Entry conditions: the user must have an abilitated account and be logged in
+Flow of events:
+- the user arrives at his personal page of the mobile app or desktop version
+- the user cliks "find available car" to full size the map
+- the user selects a car and click reserve
+- the user is notified with both sms and app notifications containing informations about the reservation and the istructions to abort it
+- the user approaches the car
+- the user asks the system to unlock the car
+- the system checks the user's position through the GPS
+- if the user's GPS position matches with the car's one, the car is unlocked
+- the user can specify whether to abilitate the Money Saving Option and the destination (mandatory if Money Saving Option is enabled)
+- the user ignites the engine and the system starts charging
+- the system takes notes about the number of passengers
+- the user drive to his destination
+- if the Money Saving Option is enabled, the system suggests the user the special parking area where to park
+- the user looks for an available parking slot while checking on the app's map that it's not forbidden by the service's policies
+- the user parks the car
+- the user stops the engine and the system stops charging
+- the user leaves the car 
+- if the parking area isn't forbidden the car gets locked by the system, otherwise the user will be asked to get back in the car and change parking slot
+- the system checks the battery status, the distance between the parking slot and the closest power station grid, and along with the previously acquired number of passengers, it applies penalities and discount according to the terms and conditions
+- the user gets notified about the final charge along with the discounts
+Exit conditions: The user gets notified by the system and the car is locked
+Exceptions: If the GPS positions of the car and the user don't match, the user is notified to get closer to the car. If the user parks in a low GPS coverage area, the system will notify the user in time. The same if the user parks in a non-safe area. If the user doesn't get back in the car within X minutes, the car gets locked and the user gets penalities
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
+
