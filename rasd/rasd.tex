@@ -20,6 +20,12 @@
 
 %\onehalfspacing
 
+\newcommand\itemtext[2]{
+	\expandafter\gdef\csname item#1\endcsname{#2}
+	\label{#1}#2}
+
+\newcommand\refitemtext[1]{\csname item#1\endcsname}
+
 \begin{document}
 
 \tableofcontents
