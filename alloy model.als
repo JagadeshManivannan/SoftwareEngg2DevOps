@@ -1,9 +1,11 @@
 open util/boolean 
 
 
-sig Car{ id: Int,position: one Position, reserved: one Bool, running: one Bool }
+sig Car{ id: Int,position: one Position, reserved: one Bool, running: one Bool, parked: Bool }
 {
 	id > 0
+	parked = True
+	running= False
 }
 
 sig User{ id: Int, position: one Position}
@@ -35,17 +37,17 @@ sig Time{year: Int, month: Int, day: Int, hour: Int,  minute: Int}
 }*/
 
 
-sig Reservation{ user: one User, car: one Car, resvTime: one Time}
+sig Reservation{ user: one User, car: one Car, resvTime: one Time, expired: one Bool}
 {
-	car.reserved=True
 }
+
 
 /*fact carAvailableWhenResvExpires{
 	all r: Reservation | isPassedOneHour(r.resvTime,TIME_NOW) implies r.car.reserved = false
 }*/
 
 fact carCanBeReservedOnce{
-	all c: Car | lone r: Reservation | r.car = c
+	all c: Car | lone r: Reservation | r.car = c && r.car.running = True && r.expired = False
 }
 
 
@@ -54,18 +56,47 @@ sig Ride{ resv: one Reservation, startLoc: one Position, stopLoc: one Position, 
 	resv.car.running=True
 }
 
+fact parkingIffNotRiding{
+	all c: Car |(c.parked = True) <=> c.running= False
+}
+
+fact rideImpliesResv{
+all r:Ride | one reserv: Reservation | r.resv.car.running = True implies reserv.car = r.resv.car && reserv.expired = False
+}
+
 /*fact resvNotExpired{
 		all r: Ride | not isPassedOneHour(r.resv.resvTime, r.startTime)
 }*/
 
 
-sig Parking{ loc: one Position, legit: one Bool}
-{
 
+/*pred reservesACar[u: User, c:Car, r:Reservation]
+{
+	c.reserved = True
+	r.car=c
+	r.user = u
 }
+
+pred ridesACar[u: User, c:Car, r:Reservation, ride:Ride]
+{
+	ride.resv = r
+	c.running = True
+}
+
+pred parksACar[u: User, c:Car, r:Reservation]
+{
+	c.running=False
+	c.reserved = False
+}*/
 
 pred show(){
 #Car=4
 }
 
-run show for 5
+assert runningImpliesReserved{
+no c: Car | c.running = True && c.reserved = False
+}
+
+//run show for 5
+check runningImpliesReserved
+
