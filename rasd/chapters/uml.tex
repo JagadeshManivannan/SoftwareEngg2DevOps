@@ -73,3 +73,32 @@ In this section we are going to analyze some of the use cases mentioned in the d
 	\item \emph{Exit conditions}: The user gets notified by the system and the car is locked.
 	\item \emph{Exceptions}: If the GPS positions of the car and the user don't match, the user is notified to get closer to the car. If the user parks in a low GPS coverage area, the system will notify the user in time. The same if the user parks in a non-safe area. If the user doesn't get back in the car within X minutes, the car gets locked and the user gets penalties.
 \end{itemize}
+
+\newpage
+\section{Sequence diagrams}
+
+\subsection{Registration of a user}
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=15.2cm,keepaspectratio]{figures/sequence_register.eps}
+	\caption{Sequence diagram for the registration of a user}
+	\label{fig:sequence_register}
+\end{figure}
+
+\newpage
+\subsection{Reservation of a car}
+\begin{figure}[h]
+\centering
+\includegraphics[height=15.2cm,keepaspectratio]{figures/sequence_reservation.eps}
+\caption{Sequence diagram for the reservation of a car}
+\label{fig:sequence_reservation}
+\end{figure}
+
+\newpage
+\subsection{Discounts and penalties}
+\begin{figure}[h]
+\centering
+\includegraphics[height=15.2cm,keepaspectratio]{figures/sequence_discounts_penalties.eps}
+\caption{Sequence diagram for the application of discounts and penalties}
+\label{fig:sequence_discounts_penalties}
+\end{figure}
