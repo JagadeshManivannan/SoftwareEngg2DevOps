@@ -1,102 +1,93 @@
 open util/boolean 
 
 
-sig Car{ id: Int,position: one Position, reserved: one Bool, running: one Bool, parked: Bool }
+sig Car{position: one Position, reserved: one Bool, running: one Bool, user: one User, battery: Int}
 {
-	id > 0
-	parked = True
-	running= False
+	battery > 0
+	battery < 100
 }
 
-sig User{ id: Int, position: one Position}
+sig User{resvCar: lone Car, drivingCar: lone Car, position: one Position}
 {
-	id > 0
-}
-
-fact carIdsAreUnique{
-	all c1,c2: Car | (c1!=c2) => (c1.id != c2.id)
-}
-
-fact userIdsAreUnique{
-	all u1,u2: User | (u1!=u2) => (u1.id != u2.id)
 }
 
 sig Position{ latitude: Int, longitude: Int}
 
-sig Time{year: Int, month: Int, day: Int, hour: Int,  minute: Int}
-{
-	year>0
-	month>0 && month <=12
-	day>0 && day<=31
-	hour >0 && hour<=24
-	minute>=0 && minute <60
-}
-
-/*fun isPassedOneHour[t1,t2: Time]: Bool {
-	(t1.year = t2.year && t1.month=t2.month && t1.day= t2.day && (((t2.hour = t1.hour +1) && (t2.minute > t1.minute)) || (t2.hour > t1.hour+1) ))
-}*/
-
-
-sig Reservation{ user: one User, car: one Car, resvTime: one Time, expired: one Bool}
+sig PowerStation{ carParked: set Car, capacity: Int, position: Position, }
 {
 }
 
+sig Parking{car: lone Car}{}
 
-/*fact carAvailableWhenResvExpires{
-	all r: Reservation | isPassedOneHour(r.resvTime,TIME_NOW) implies r.car.reserved = false
-}*/
+fact capacityConstraint{
+	 all pw: PowerStation | #pw.carParked < pw.capacity
+}
 
-fact carCanBeReservedOnce{
-	all c: Car | lone r: Reservation | r.car = c && r.car.running = True && r.expired = False
+fact carLocationConstraint{
+	all c: Car, ps:PowerStation, p: Parking | (c in ps.carParked => c != p.car) and ( c = p.car => not c in ps.carParked) 
+}
+
+fact coordinatesConstraint{
+	all u: User | #u.drivingCar=1 implies u.position = u.drivingCar.position
+	all c:Car, pw: PowerStation | (c in pw.carParked) implies c.position = pw.position
+	all pw1, pw2 : PowerStation | pw1 != pw2 implies pw1.position != pw2.position
+}
+
+fact carConstraints{
+	all c: Car | c.running = True and #c.user = 1 implies c.user.drivingCar = c
+	all c: Car | c.reserved = True and #c.user = 1 implies c.user.resvCar = c
+	all c: Car | (c.running = True implies c.reserved = False) and (c.reserved = True implies c.running = False) 
+	all c: Car, ps:PowerStation, p: Parking | ((c in ps.carParked) or (c = p.car)) implies c.running = False 
+	all c: Car | (c.running=True <=> #c.user.drivingCar=1) and (c.reserved = True <=> #c.user.resvCar = 1) and (#c.user = 1 implies (c.running = True or c.reserved = True))
+}
+
+fact userConstraints{
+	all u: User | #u.drivingCar = 1 implies u.drivingCar.user = u
+	all u: User | #u.resvCar=1 implies u.resvCar.user = u
+	all u: User | (#u.resvCar=1 implies #u.drivingCar=0) and (#u.drivingCar=1 implies #u.resvCar=0)
 }
 
 
-sig Ride{ resv: one Reservation, startLoc: one Position, stopLoc: one Position, startTime: one Time}
-{
-	resv.car.running=True
+pred powerStationUpdate (c,c':Car) {
+all p:PowerStation | (c in p.carParked => (one p':PowerStation | (
+p'.carParked = p.carParked - c + c' and
+p.capacity=p'.capacity and
+p.position=p'.position and
+#p.carParked=#p'.carParked )
+))
 }
 
-fact parkingIffNotRiding{
-	all c: Car |(c.parked = True) <=> c.running= False
+
+pred UserReservesACar (c,c':Car, u,u':User) {
+#u.resvCar=0
+#u.drivingCar=0
+c.running = False
+c.reserved = False
+#c.user=0
+c'.running = False
+c'.reserved = True
+c'.user=u'
+c.position=c'.position
+c.battery=c'.battery
+u'.resvCar=c'
+#u.drivingCar=0
+powerStationUpdate[c,c']
+powerStationUpdate[c',c]
 }
 
-fact rideImpliesResv{
-all r:Ride | one reserv: Reservation | r.resv.car.running = True implies reserv.car = r.resv.car && reserv.expired = False
+pred UserAbortsReservation (c,c':Car, u,u':User) {
+UserReservesACar[c',c,u',u]
 }
 
-/*fact resvNotExpired{
-		all r: Ride | not isPassedOneHour(r.resv.resvTime, r.startTime)
-}*/
 
 
 
-/*pred reservesACar[u: User, c:Car, r:Reservation]
-{
-	c.reserved = True
-	r.car=c
-	r.user = u
-}
 
-pred ridesACar[u: User, c:Car, r:Reservation, ride:Ride]
-{
-	ride.resv = r
-	c.running = True
-}
 
-pred parksACar[u: User, c:Car, r:Reservation]
-{
-	c.running=False
-	c.reserved = False
-}*/
 
 pred show(){
-#Car=4
+#Car=3
 }
 
-assert runningImpliesReserved{
-no c: Car | c.running = True && c.reserved = False
-}
-
-//run show for 5
-check runningImpliesReserved
+run show
 
