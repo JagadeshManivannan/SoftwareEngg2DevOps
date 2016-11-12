@@ -77,3 +77,27 @@ o	Take at least two other passengers onto the reserved car and avail discount.
 o	Minimize the consumption of the batterys charge in the reserved car to avail discount.
 o	Park the reserved car in special parking areas and avail discount.
 o	Select (Enable) the money saving option to get discount.
+
+3.2 NON-FUNCTIONAL REQUIREMENTS:
+3.2.1 User Interface:
+	The user interface of our application is thought to be used via web as well as a mobile application. There are two sketches of the UI screen which are displayed below:
+ 
+The first screen is the HOME page where any guest user can see. It displays the sign up and login option; options like finding available cars, reserving an available car, money saving option, charge per km with current charge, status of the battery, discounts, safe areas and special parking areas. This is the HOME page of the desktop version.
+
+The second screen shows the features and option in a mobile application. The first picture in the below area shows the HOME page of the application before login. It shows the sign up and login option for the guest user. It also displays the availability of cars in nearby area through GPS.
+
+The below screen displays the screen after a registered user logins. It has options like: find the available cars, reserve a car, discounts, safe area,	special parking areas, money saving option, price per km with current charge.
+3.2.2 Documentation
+-	We will release the following documents in order to organize our work in each phase of the development process and keep in touch with the stakeholders.
+
+-	RASD, Requirement Analysis and Specification Document, which defines our goals and assumptions and contains an overall description of the system (using scenarios and use-cases) and the models describing requirements and specifications.
+
+-	DD, Design Document, which contains a functional description of the system using models such as UML diagrams.
+
+-	Installation manual, which explains how to deploy the web site.
+
+-	User manual, which explains users how to use the main functionalities of the web site.
+
+-	Testing report, which contains the results of the testing activity performed on a system developed by another group.
+
+-	Project reporting, which is the result of some analysis done on the project activity.
