@@ -13,7 +13,7 @@ sig User{resvCar: lone Car, drivingCar: lone Car, position: one Position}
 
 sig Position{ latitude: Int, longitude: Int}
 
-sig PowerStation{ carParked: set Car, capacity: Int, position: Position, }
+sig PowerStation{ carParked: set Car, capacity: Int, position: Position, amountParked: Int }
 {
 }
 
@@ -79,15 +79,54 @@ pred UserAbortsReservation (c,c':Car, u,u':User) {
 UserReservesACar[c',c,u',u]
 }
 
-
-
-
-
-
-
-pred show(){
-#Car=3
+pred userDrivesACar (c,c':Car, u,u':User) {
+c.user=u
+c'.user=u'
+c.position=c'.position
+c.battery=c'.battery
+c.reserved = True
+c'.running = True
+u.resvCar=c
+u'.drivingCar=c'
+userUnplugsACar [c]
 }
 
-run show
+pred userUnplugsACar (c:Car) {
+all p:PowerStation | c in p.carParked => one p':PowerStation | (
+ p.capacity=p'.capacity and p.position=p'.position 
+and p'.carParked=p.carParked-c and p.amountParked=plus[p'.amountParked,1])
+}
+
+pred UserFinishesARide (c,c':Car) {
+c.battery=c'.battery
+c.position=c'.position
+c'.reserved = False
+c.running = True
+c'.running = False
+UserPlugsACarIn[c']
+}
+
+pred UserPlugsACarIn (c':Car) {
+all p,p':PowerStation | p.capacity=p'.capacity and p.position=p'.position
+all p:PowerStation | p.position=c'.position and c' not in p.carParked => 
+one p':PowerStation | (p'.carParked=p.carParked+c' and p'.amountParked=plus[p.amountParked,1] )
+all p:PowerStation | c' in p.carParked => one p':PowerStation | (p'.carParked=p.carParked-c'
+and p'.amountParked=minus[p.amountParked,1] )
+}
+
+assert CarCanHaveOneState {
+all c:Car | not (c.reserved = True and c.running = True)
+}
+assert UserCanHaveOneState {
+all u:User | not (#u.drivingCar=1 and #u.resvCar=1)
+}
+
+
+
+run userDrivesACar  for 2 
+run UserFinishesARide for 2
+run UserReservesACar for 2 
+run UserAbortsReservation for 2 
+check CarCanHaveOneState for 2
+check UserCanHaveOneState for 2
 
