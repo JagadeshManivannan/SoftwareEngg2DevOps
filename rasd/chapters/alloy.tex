@@ -1,0 +1,19 @@
+\chapter{Alloy modeling}
+
+\section{Model}
+\begin{minted}[tabsize=4]{alloy}
+open util/boolean
+
+sig Car {
+	position: one Position,
+	reserved: one Bool,
+	running: one Bool,
+	user: one User,
+	battery: Int
+} {
+	battery > 0
+	battery < 100
+}
+\end{minted}
+
+\section{Alloy result}
