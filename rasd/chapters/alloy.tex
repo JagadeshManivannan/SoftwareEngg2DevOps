@@ -9,22 +9,27 @@ sig Car {
 	reserved: one Bool,
 	running: one Bool,
 	user: one User,
-	battery: Int
+	battery: one Float
 } {
 	battery > 0
 	battery < 100
 }
 
 sig User {
+	email: one String,
+	name: one String,
+	telephone: one String,
 	resvCar: lone Car,
 	drivingCar: lone Car,
 	position: one Position
 }
 
 sig Position{
-	latitude: Int,
-	longitude: Int
-	}
+	latitude: one Float,
+	longitude: one Float
+}
+
+sig String{}
 
 sig PowerStation {
 	carParked: set Car,
