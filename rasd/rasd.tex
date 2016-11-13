@@ -3,9 +3,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amssymb}
+\usepackage{frontespizio}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
-\usepackage{setspace}
 \usepackage{eurosym}
 \usepackage{graphicx}
 \usepackage{xcolor}
@@ -20,8 +20,6 @@
 
 \pagestyle{plain}
 
-%\onehalfspacing
-
 \newcommand\itemtext[2]{
 	\expandafter\gdef\csname item#1\endcsname{#2}
 	\label{#1}#2}
@@ -29,7 +27,9 @@
 \newcommand\refitemtext[1]{\csname item#1\endcsname}
 
 \begin{document}
-
+	
+\include{chapters/frontespizio}
+ 
 \tableofcontents
 
 \include{chapters/introduction}
