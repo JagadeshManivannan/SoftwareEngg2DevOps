@@ -1,0 +1,6 @@
+Instance found. Predicate is consistent.
+Instance found. Predicate is consistent.
+Instance found. Predicate is consistent.
+Instance found. Predicate is consistent.
+No counterexample found. Assertion may be valid.
+No counterexample found. Assertion may be valid.
