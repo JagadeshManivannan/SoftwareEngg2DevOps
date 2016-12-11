@@ -1,0 +1,66 @@
+1.Introduction
+1.1.Purpose
+The purpose of this document is to give more technical details than the RASD about PowerEnJoy system.
+This document is addressed to developers and aims to identify:
+ The high level architecture.
+* The design patterns.
+* The main components and their interfaces provided one for another.
+* The Runtime behavior.
+
+
+1.2.Scope
+
+The project PowerEnJoy, which is a service based on mobile application and web application, has two different targets of people:
+* An unregistered user (public).
+* The Client (registered user).
+The system allows clients to reserve a taxi via a mobile or web app, using his GPS position to find an available Car nearby.
+It also allows the  client to reserve an available car, get discounts for efficeient usage and other services.
+The unregistered user is allowed only to register/SignUp to the PowerEnJoy system to enjoy its services.
+The main purpose of the system is to be more efficient, reliable and offer a better service to the clients by faster response by reducing the response time.
+
+
+
+1.3.Definitions, acronyms, abbreviations
+* RASD: requirements analysis and specifications document.
+* DD: design document.
+* SMS Notification: short message service; it is a notification sent to a mobile phone, an SMS gateway is needed to use it.
+* SMS gateway: it is a service which allows to send SMS via standard API.
+* API: application programming interface; it is a common way to communicate with another system.
+* MVC: model view controller.
+* URL: uniform resource locator.
+* Push notification: it is a notification sent to a smartphone using the mobile application, so it must be installed.
+* Push service: it is a service that allows to send push notifications with own API.
+* REST: REpresantional State Transfer.
+* RESTful: REST with no session.
+* UX: user experience design.
+* BCE: business controller entity.
+
+
+
+1.4.Reference documents
+
+
+* RASD produced before 1.1
+* Specification Document: Assignments 1 and 2 (RASD and DD).pdf
+* Structure of the design document.pdf
+
+
+1.5.Document structure
+
+
+* Introduction: this section introduces the design document. It contains a justification of his utility and indications on which parts are covered in
+this document that are not covered by RASD.
+* Architecture Design: this section is divided into different parts:
+
+1. Overview : this sections explains the division in tiers of our application.
+2. High level components and their interaction : this sections gives a global view of the components of the application and how they communicate.
+3. Component view : this sections gives a more detailed view of the components of the applications.
+4. Deploying view : this section shows the components that must be deployed to have the application running correctly.
+5. Runtime view : sequence diagrams are represented in this section to show the course of the different tasks of our application.
+6. Component interfaces : the interfaces between the components are presented in this section.
+7. Selected architectural styles and patterns : this section explain the architectural choices taken during the creation of the application.
+8. Other design decisions:
+* Algorithms Design: this section describes the most critical parts via some algorithms. Pseudo code is used in order to hide unnecessary implementation
+details in order to focus on the most important parts.
+* User Interface Design: this section presents mockups and user experience explained via UX and BCE diagrams.
+* Requirements Traceability: this section aims to explain how the decisions taken in the RASD are linked to design elements.
