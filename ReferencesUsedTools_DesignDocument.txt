@@ -1,0 +1,7 @@
+References
+Used tools
+The tools we used to create this DD document are:
+• Creately.com: for desgin of sequence diagram of Runtime view,Deployment View.
+• GitHub: version control for the development of this document.
+* Draw.io: for design of the UML diagrams-component view, UX diagram.
+• TeXstudio: drafting of this document.
