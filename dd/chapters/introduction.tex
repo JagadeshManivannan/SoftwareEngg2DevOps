@@ -1,0 +1,50 @@
+\chapter{Introduction}
+
+\section{Purpose}
+The Design Document aims to describe more accurately all the functionalities provided by PowerEnJoy focusing on the software design of the system, such as the architectural components and the interfaces that allow them to interact.
+
+The main objective of this DD is to illustrate to a team of developers how to scrupulously implement our service, with the help of UML diagrams explaining the purpose of every element.
+
+\section{Scope}
+The product described is PowerEnJoy, a car-sharing service which offers to its users exclusively electric cars. It includes the common functionalities of its category: permitting to registered users to obtain the position of all the available cars, reserving one within a certain amount of time and continuously displaying the up-to-the-minute cost of the ride are just few of them. Moreover, PowerEnJoy stimulates users to behave virtuously towards the ecosystem by applying various types of discounts under specific conditions.
+
+There are four software components that constitute the PowerEnJoy project. First, a back-end server provides APIs in order to simplify the communication related to the interactions of a user with the cars. Then two applications are available for a user to allow him/her the employment of every functionality: a web-based application (intended for visualization from desktop) and a mobile one. Lastly, every vehicle will be equipped with an on-board computer, used by the driver to manage the ride with the available options and see real-time information related to it, such as the time spent, the distance traveled and the total amount.
+
+\section{Definitions, acronyms, abbreviations}
+\begin{itemize}
+	\item \emph{API}: Application Programming Interface
+	\item \emph{Car}: electric vehicle provided by the service
+	\item \emph{DB}: Database
+	\item \emph{DBMS}: Database Management System
+	\item \emph{DD}: Design Document
+	\item \emph{ER}: Entity-Relationship
+	\item \emph{GPS}: Global Positioning System
+	\item \emph{Guest} or \emph{Guest user}: person not registered to the service
+	\item \emph{MVC}: Model View Controller
+	\item \emph{OS}: Operating System, related both to desktop and mobile platforms
+	\item \emph{PIN}: Personal Identification Number
+	\item \emph{RASD}: Requirements Analysis and Specification Document
+	\item \emph{Registered user}: see \emph{User}
+	\item \emph{REST}: REpresentational State Transfer
+	\item \emph{RESTful}: that follows the REST principles
+	\item \emph{Safe area}: set of parking spots where a user can leave a car without penalization 
+	\item \emph{User}: person with a valid driving license registered to the service
+	\item \emph{W3C}: World Wide Web Consortium
+\end{itemize}
+
+\section{Reference documents}
+The Design Document has been composed following the indications and examples reported in the document ISO/IEC/IEEE 1016-2009, released by W3C, containing provisions for the processes and products related to the engineering of requirements for systems and software products and services throughout the life cycle.
+
+The previous document delivered for this project, the Requirements Analysis and Specification Document, describes fundamental aspects of PowerEnJoy such as domain assumptions, goals, functional and non-functional requirements.
+
+With regards to the course named Software Engineering 2 and held by professors Luca Mottola and Elisabetta Di Nitto (Politecnico di Milano, a.~y. 2016/17), the document conforms to the guidelines provided during the lectures and within the material of the course.
+
+\section{Document structure}
+This Design Document is composed of five chapters, each of them describing a specific aspect of our project.
+\begin{itemize}
+	\item \emph{Introduction}: provides a general overview of this document.
+	\item \emph{Architectural design}: explains the main components, focusing on their interactions, architectural choices and patterns.
+	\item \emph{Algorithm design}: describes the most relevant algorithms utilized in order to optimize the system.
+	\item \emph{User interface design}: shows what is likely to be displayed to the user when using the client-side implementations.
+	\item \emph{Requirements traceability}: indicates how the requirements reported in the RASD map to the design elements described in this document.
+\end{itemize}
