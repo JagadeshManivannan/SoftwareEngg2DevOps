@@ -1,0 +1,117 @@
+\chapter{Requirements traceability}
+
+Each requirement described in the RASD maps to some of the components reported in this document; below the reader will find the list of components involved for every goal of our service.
+
+\begin{itemize}
+	\item {[}G1{]} Registration of a user to the system
+	\begin{itemize}
+		\item Login Manager
+	\end{itemize}
+
+	\item {[}G2{]} Finding the locations of the available cars
+	\begin{itemize}
+		\item Map Manager
+		\item Availability Helper
+		\item Cars
+	\end{itemize}
+
+	\item {[}G3{]} Reservation of a car
+	\begin{itemize}
+		\item Map Manager
+		\item Selection Manager
+		\item Reservation Manager
+		\item Reservation Controller
+		\item Availability Helper
+		\item Cars
+	\end{itemize}
+
+	\item {[}G4{]} Expiration of reservation and penalization
+	\begin{itemize}
+		\item Map Manager
+		\item Selection Manager
+		\item Reservation Manager
+		\item Reservation Controller
+		\item Availability Helper
+		\item Discount and Penalty Manager
+		\item Discount and Penalty Controller
+	\end{itemize}
+
+	\item {[}G5{]} Entry of registered user into the car
+	\begin{itemize}
+		\item Map Manager
+		\item Ride Manager
+		\item Ride Controller
+		\item Car
+	\end{itemize}
+
+	\item {[}G6{]} Start charging and notifying the registered user
+	\begin{itemize}
+		\item Map Manager
+		\item Ride Manager
+		\item Ride Controller
+		\item Discount and Penalty Manager
+		\item Discount and Penalty Controller
+		\item SMS Gateway Interface
+		\item SMS Gateway
+	\end{itemize}
+
+	\item {[}G7{]} Stop charging the registered user and lock the
+	\begin{itemize}
+		\item Map Manager
+		\item Ride Manager
+		\item Ride Controller
+		\item Parking Manager
+		\item Parking Controller
+		\item Discount and Penalty Manager.
+		\item Discount and Penalty Controller
+	\end{itemize}
+
+	\item {[}G8{]} Safe areas for parking the reserved cars
+	\begin{itemize}
+		\item Map Manager
+		\item Ride Manager
+		\item Ride Controller
+		\item Parking Manager
+		\item Parking Controller
+	\end{itemize}
+
+	\item {[}G9{]} Detection of extra passengers and applying discount
+	\begin{itemize}
+		\item Map Manager
+		\item Ride Manager
+		\item Ride Controller
+		\item Discount and Penalty Manager
+		\item Discount and Penalty Controller
+	\end{itemize}
+
+	\item {[}G10{]} Detection of the battery status and applying discount
+	\begin{itemize}
+		\item Map Manager
+		\item Ride Manager
+		\item Ride Controller
+		\item Discount and Penalty Manager
+		\item Discount and Penalty Controller
+	\end{itemize}
+
+	\item {[}G11{]} Detection of special parking areas and applying discount
+	\begin{itemize}
+		\item Map Manager
+		\item Ride Manager
+		\item Ride Controller
+		\item Parking Manager
+		\item Parking Controller
+		\item Discount and Penalty Manager
+		\item Discount and Penalty Controller
+	\end{itemize}
+
+	\item {[}G12{]} Checking parking and battery constraints and penalization
+	\begin{itemize}
+		\item Map Manager
+		\item Ride Manager
+		\item Ride Controller
+		\item Parking Manager
+		\item Parking Controller
+		\item Discount and Penalty Manager
+		\item Discount and Penalty Controller
+	\end{itemize}
+\end{itemize}
