@@ -18,7 +18,7 @@ The system-to-be that will be implemented for PowerEnJoy is made of three main l
 	\item \emph{Database}. It is the data layer of PowerEnJoy. It interacts only with the application server, receiving from it requests to retrieve, update, create or delete the data stored. It provides the interfaces that allow the application layer to execute these operations. 
 \end{itemize}
 
-\newpage
+\clearpage
 \section{Component view}
 \begin{figure}[h]
 	\centering
@@ -27,7 +27,30 @@ The system-to-be that will be implemented for PowerEnJoy is made of three main l
 	\label{fig:component_view}
 \end{figure}
 
-\newpage
+\clearpage
+\subsection{State diagrams}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=7.3cm,keepaspectratio]{figures/car_state_diagram.eps}
+	\caption{State diagram for the class car}
+	\label{fig:car_state_diagram}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=7.3cm,keepaspectratio]{figures/reservation_state_diagram.eps}
+	\caption{State diagram for the class reservation}
+	\label{fig:reservation_state_diagram}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9.8cm,keepaspectratio]{figures/user_state_diagram.eps}
+	\caption{State diagram for the class user}
+	\label{fig:user_state_diagram}
+\end{figure}
+
+\clearpage
 \section{Deployment view}
 \begin{figure}[h]
 	\centering
