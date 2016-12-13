@@ -1,1 +1,65 @@
 \chapter{Algorithm design}
+
+In this chapter we are going to present two of the algorithms thought for our system. The language used to describe them is based on Java, with the sporadic addition of pseudocode and comments for the least interesting parts of the code.
+
+\section{Discounts and penalties}
+\begin{minted}[tabsize=4,breaklines=true]{java}
+Double discountsAndPenalties(Double rideCost) {
+	Double discount = 0.0, penalty = 0.0;
+	
+	if (totalPassengers >= 3) {
+		discount = 0.1; // 10% discount
+	}
+	
+	if (batteryStatus >= 0.5) {
+		discount = 0.2; // 20% discount
+	}
+	
+	if (car.isCharging()) {
+		discount = 0.3; // 30% discount
+	}
+	
+	rideCost -= rideCost * discount;
+	
+	// distances are expressed in meters
+	Double currentDistance, minDistance = Double.MAX_VALUE;
+	for (PowerStation ps : PowerStation.listAll()) {
+		currentDistance = distance(car.getPosition(), ps.getPosition());
+		if (currentDistance < minDistance) {
+			minDistance = currentDistance;
+		}
+	}
+	
+	if (minDistance > 3000 || batteryStatus < 0.2) {
+		penalty = 0.3; // 30% penalty
+	}
+	
+	rideCost += rideCost * penalty;
+	
+	return rideCost;
+}
+\end{minted}
+
+\section{Money Saving Option}
+\begin{minted}[tabsize=4,breaklines=true]{java}
+PowerStation moneySavingOption(Position destination) {
+	long[] density;
+	int[] distances;
+	PowerStation[] stations;
+	int distance;
+	
+	for (i = 0; i < zone.size; i++) {
+		density(i) = zone[i].parkedCar.size / zone[i].area;
+	}
+	
+	for (i = 0; i < zone.size; i++) {
+		distance = distance(zone[i], destination);
+		
+		if (avg(density) - density(i) > threshold1 && distance < threshold2) {
+			distances.add(distance);
+		}
+	}
+	
+	return stations[indexOf(min(distances))];
+}
+\end{minted}
