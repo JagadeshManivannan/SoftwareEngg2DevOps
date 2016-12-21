@@ -73,7 +73,7 @@ fact userConstraints {
 	all u: User | (#u.resvCar = 1 implies #u.drivingCar = 0) and (#u.drivingCar = 1 implies #u.resvCar = 0)
 }
 
-pred powerStationUpdate(c,c':Car) {
+pred PowerStationUpdate(c,c':Car) {
 	all p:PowerStation | (c in p.carParked => (one p':PowerStation | (
 		p'.carParked = p.carParked - c + c' and
 		p.capacity = p'.capacity and
@@ -103,7 +103,7 @@ pred UserAbortsReservation(c,c':Car,u,u':User) {
 	UserReservesACar[c',c,u',u]
 }
 
-pred userDrivesACar (c,c':Car, u,u':User) {
+pred UserDrivesACar (c,c':Car, u,u':User) {
 	c.user = u
 	c'.user = u'
 	c.position = c'.position
@@ -115,7 +115,7 @@ pred userDrivesACar (c,c':Car, u,u':User) {
 	userUnplugsACar [c]
 }
 
-pred userUnplugsACar(c:Car) {
+pred UserUnplugsACar(c:Car) {
 	all p:PowerStation | c in p.carParked => one p':PowerStation | (
 		p.capacity = p'.capacity and p.position = p'.position 
 		and p'.carParked = p.carParked - c and p.amountParked = plus[p'.amountParked,1])
@@ -146,10 +146,38 @@ assert UserCanHaveOneState {
 	all u:User | not (#u.drivingCar = 1 and #u.resvCar = 1)
 }
 
-run userDrivesACar for 5
+run UserDrivesACar for 5
 run UserFinishesARide for 5
 run UserReservesACar for 5
 run UserAbortsReservation for 5
 check CarCanHaveOneState for 5
 check UserCanHaveOneState for 5
 \end{minted}
+
+\section{Alloy result}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth,keepaspectratio]{figures/alloy_results.eps}
+	\caption{Alloy result of the model}
+	\label{fig:alloy_results}
+\end{figure}
+
+\clearpage
+\section{World generated}
+
+\subsection{UserDrivesACar}
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=15.2cm,keepaspectratio]{figures/world_generated_driving.eps}
+	\caption{World generated for predicate \#1}
+	\label{fig:world_generated_driving}
+\end{figure}
+
+\clearpage
+\subsection{UserReservesACar}
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=15.2cm,keepaspectratio]{figures/world_generated_reservation.eps}
+	\caption{World generated for predicate \#3}
+	\label{fig:world_generated_reservation}
+\end{figure}
