@@ -1,0 +1,196 @@
+Chapter 2 
+
+
+
+Test plan
+
+
+2.1 Test items
+
+
+The items to be tested consist of the integration of the code modules developed, for the
+Power Enjoy project. For testing we choose the bottom-up approach. This means that integration
+testing starts at the bottom  level.We chose this because the top level component when built 
+has to be tested from the bottom level components in your project (i.e) we can simply say that it has few dependencies 
+on the bottom level components for testing.Even though, it can be developed by creating stubs, we do not prefer that.
+We want to test using the real values and functionalities. The integration tests described in this documents are at the component
+level. The integration tests of lower level code modules are described in the corresponding
+components unit test. Unit tests are described in the [UTP].
+
+
+2.2 Features to be tested
+
+Figures 2.1 and 2.2 shows the component level diagrams that forms the Power Enjoy system.
+The arrows represent the order of integration, i.e. integration testing.
+
+
+
+
+Integration Tests of the Controller Software:
+
+ID			Integaration Test																	Paragraphs
+I1		Database--->Availability Helper
+I2		Availability Helper--->Selection Controller
+I3		Availability Helper--->Reservation Controller
+I4		Availability Helper--->Parking Controller
+I5		Selection Controller,Reservation Controller,Parking Controller,
+		Ride Controller,Discounts Controller--->Map Manager
+I6		Map Manager--->Client Application
+
+
+
+
+
+Integration Tests of the Notification Software:
+
+
+ID			Integaration Test																	Paragraphs
+
+I7		SMS Gateway--->Notification Helper
+I8		PUSH Gateway--->Notification Helper
+I9		Notification Helper--->Map Manager
+
+
+2.3 Test deliverables
+
+The following items must be delivered before integration testing can begin:
+* The Detailed Design Document [DDD].
+* Chapters 1, 2, 3 and 4 of this document.
+
+The following items must be delivered before a specific integration test can begin:
+
+* Input data for this specific integration test.
+* The components involved.
+* Integration test report, which will be listed in the integration tests paragraph in chapter
+  5 of this document.
+* Integration test output data.
+* Problem reports (if necessary).
+
+The following items must be delivered when testing on all code modules has finished:
+* All integration test reports, which comprises chapter 5 of this document.
+
+
+2.4 Testing tasks
+
+The following tasks are necessary for performing a specific integration test:
+* Designing the integration test.
+* Designing input test data (if it was not made at the unit test).
+* Setting up a system, the components involved,and the input test data.
+* Performing the integration test.
+
+
+2.5 Test case pass/fail criteria
+Every test case must describe what the criteria are to pass that specific test.
+
+
+
+
+
+
+Chapter 3
+
+
+Test case specifications
+
+
+3.1 Integration test case I1
+
+Test Case Identifier 		I1T1
+Test Item(s) 				D.B--->Availability Helper
+Input Specification 		Create typical SQL query(Database inputs)
+Output Specification 		Check if the correct functions are called in the Availability Helper
+Environmental Needs 		Necessary input parameters for testing
+
+
+3.2 Integration test case I2
+
+Test Case Identifier 		I2T1
+Test Item(s) 				Availability Helper--->Selection Controller
+Input Specification 		Create typical Availability Helper input
+Output Specification 		Check if the correct functions are called in the Selection Controller
+Environmental Needs 		I1 succeeded
+
+
+3.3 Integration test case I3
+
+Test Case Identifier 		I3T1
+Test Item(s) 				Availability Helper--->Reservation Controller
+Input Specification 		Create typical Availability Helper input
+Output Specification 		Check if the correct functions are called in the Reservation Controller
+Environmental Needs 		I1 succeeded
+
+3.4 Integration test case I4
+
+Test Case Identifier 		I4T1
+Test Item(s) 				Availability Helper--->Parking Controller
+Input Specification 		Create typical Availability Helper input
+Output Specification 		Check if the correct functions are called in the Parking Controller
+Environmental Needs 		I1 succeeded
+
+3.5 Integration test case I5
+
+Test Case Identifier 		I5T1
+Test Item(s) 				Selection Controller--->Map Manager
+Input Specification 		Create typical Selection Controller input
+Output Specification 		Check if the correct functions are called in the Map Manager
+Environmental Needs 		I1,I2 succeeded
+
+
+Test Case Identifier 		I5T1
+Test Item(s) 				Reservation Controller--->Map Manager
+Input Specification 		Create typical Reservation Controller input
+Output Specification 		Check if the correct functions are called in the Map Manager
+Environmental Needs 		I1,I2,I3 succeeded
+
+
+Test Case Identifier 		I5T1
+Test Item(s) 				Reservation Controller--->Map Manager
+Input Specification 		Create typical Reservation Controller input
+Output Specification 		Check if the correct functions are called in the Map Manager
+Environmental Needs 		I1,I2,I3,I4 succeeded
+
+
+Test Case Identifier 		I5T1
+Test Item(s) 				Ride Controller--->Map Manager
+Input Specification 		Create typical Ride Controller input
+Output Specification 		Check if the correct functions are called in the Map Manager
+Environmental Needs 		I1,I2,I3 succeeded
+
+Test Case Identifier 		I5T1
+Test Item(s) 				Discount Controller--->Map Manager
+Input Specification 		Create typical Discount Controller input
+Output Specification 		Check if the correct functions are called in the Map Manager
+Environmental Needs 		I1,I2,I3,I4 succeeded
+
+3.6 Integration test case I6
+
+Test Case Identifier 		I6T1
+Test Item(s) 				Map Manager<---Client Application
+Input Specification 		Create typical User/Client inputs
+Output Specification 		Check if the correct functions are called in the Map Manager
+Environmental Needs 		I1,I2,I3,I4,I5 succeeded
+
+3.7 Integration test case I7
+
+Test Case Identifier 		I7T2
+Test Item(s) 				SMS Gateway--->Notification Helper
+Input Specification 		Create typical SMS Gateway inputs
+Output Specification 		Check if the SMS is delivered
+Environmental Needs 		I1,I2,I3,I4,I5,I6 succeeded
+
+3.8 Integration test case I8
+
+Test Case Identifier 		I8T2
+Test Item(s) 				PUSH Gateway--->Notification Helper
+Input Specification 		Create typical PUSH Gateway inputs
+Output Specification 		Check if the correct functions are called in the PUSH Gateway 
+Environmental Needs 		I1,I2,I3,I4,I5,I6 succeeded
+
+
+3.9 Integration test case I9
+
+Test Case Identifier 		I9T2
+Test Item(s) 				Notification Helper--->Map Manager
+Input Specification 		Create typical Notification Helper inputs
+Output Specification 		Check if the correct functions are called in the Map Manager
+Environmental Needs 		I1,I2,I3,I4,I5,I6,I7,I8 succeeded
