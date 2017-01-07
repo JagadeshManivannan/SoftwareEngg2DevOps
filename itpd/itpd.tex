@@ -1,0 +1,38 @@
+\documentclass[12pt,a4paper,oneside]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{frontespizio}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{eurosym}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{minted}
+
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot[C]{\thepage}
+	\renewcommand{\headrulewidth}{\ifnum\value{chapter}>0 0.5pt \else 0pt \fi}
+	\renewcommand{\footrulewidth}{0pt}
+	\fancyhead[L]{\ifnum\value{chapter}>0 \bfseries \itshape \nouppercase \leftmark \fi}
+}
+
+\pagestyle{plain}
+
+\newcommand\itemtext[2]{
+	\expandafter\gdef\csname item#1\endcsname{#2}
+	\label{#1}#2}
+
+\newcommand\refitemtext[1]{\csname item#1\endcsname}
+
+\begin{document}
+	
+\include{chapters/frontespizio}
+ 
+\tableofcontents
+
+\include{chapters/introduction}
+
+\end{document}
