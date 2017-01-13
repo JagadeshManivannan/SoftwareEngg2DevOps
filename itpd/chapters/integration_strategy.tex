@@ -20,7 +20,11 @@ The decision of requiring different amounts of functionalities according to the 
 \section{Elements to be integrated}
 
 \section{Integration testing strategy}
-The items to be tested consist of the integration of the code modules developed for the Power Enjoy project. For testing we choose the bottom-up approach. This means that integration testing starts at the bottom level. We chose this because the top level component when built has to be tested from the bottom level components in our project, i.e. we can simply say that it has few dependencies on the bottom level components for testing.
+The items to be tested consist of the integration of the code modules developed for the Power Enjoy project. For testing we choose the bottom-up approach. This means that integration testing starts at the bottom level.
+
+Using the bottom-up approach, we will start integrating together those components that do not depend on other ones to work, or that only depend on already developed components. We chose this because the top level component when built has to be tested from the bottom level components in our project, i.e. we can simply say that it has few dependencies on the bottom level components for testing.
+
+Moreover, working bottom-up allows us to follow more carefully the development process and the developers to start performing integration testing earlier in the development process as soon as the required components have been developed, so that parallelism and efficiency are maximized.
 
 We want to test using the real values and functionalities. The integration tests described in this documents are at the component level. The integration tests of lower level code modules are described in the corresponding components unit test.
 
