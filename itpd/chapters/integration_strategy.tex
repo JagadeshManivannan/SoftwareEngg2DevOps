@@ -1,6 +1,6 @@
-\chapter{Integration Strategy}
+\chapter{Integration strategy}
 
-\section{Entry Criteria}
+\section{Entry criteria}
 This section shows the conditions that must be met before starting the integration in order to obtain significant results.
 
 First, it is crucial that the RASD and DD documents are completely composed, so that a whole vision of the components of the system and their functionalities is available.
@@ -9,24 +9,22 @@ As regards the individual components, the development must go forward along with
 
 Moreover, the integration process should start when the following percentages of development are achieved:
 \begin{itemize}
-	\item 
-	\item 
-	\item 
+	\item 100\% of the database and availability helper components
+	\item at least 80\% of the controller components
+	\item at least 90\% of the payment components
+	\item at least 50\% for the client application
 \end{itemize}
 
 The decision of requiring different amounts of functionalities according to the component is based on the order the integration will take place and on the time needed to accomplish the integration testing phase of each one.
 
+\section{Elements to be integrated}
 
-\section{Elements to be Integrated}
+\section{Integration testing strategy}
+The items to be tested consist of the integration of the code modules developed for the Power Enjoy project. For testing we choose the bottom-up approach. This means that integration testing starts at the bottom level. We chose this because the top level component when built has to be tested from the bottom level components in our project, i.e. we can simply say that it has few dependencies on the bottom level components for testing.
 
-\section{Integration Testing Strategy}
-The items to be tested consist of the integration of the code modules developed, for the
-Power Enjoy project. For testing we choose the bottom-up approach. This means that integration
-testing starts at the bottom level. We chose this because the top level component when built has to be tested from the bottom level components in your project, i.e. we can simply say that it has few dependencies on the bottom level components for testing.
+We want to test using the real values and functionalities. The integration tests described in this documents are at the component level. The integration tests of lower level code modules are described in the corresponding components unit test.
 
-Even though, it can be developed by creating stubs, we do not prefer that.
-We want to test using the real values and functionalities. The integration tests described in this documents are at the component
-level. The integration tests of lower level code modules are described in the corresponding
-components unit test. Unit tests are described in the [UTP].
+\section{Sequence of component/Function integration}
 
-\section{Sequence of Component/Function Integration}
+\subsection{Software integration sequence}
+\subsection{Subsystem integration sequence}
