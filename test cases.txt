@@ -1,0 +1,152 @@
+Chapter 3
+
+
+Test case specifications
+
+
+3.1 Integration test case I1
+
+Test Case Identifier 		I1T1
+Test Item(s) 				D.B--->Availability Helper
+Input Specification 		Create typical SQL query(Database inputs)
+Output Specification 		Check if the correct functions are called in the Availability Helper
+Environmental Needs 		Necessary input parameters for testing
+
+
+3.2 Integration test case I2
+
+Test Case Identifier 		I2T1
+Test Item(s) 				Availability Helper--->Selection Controller
+Environmental Needs 		I1 succeeded
+
+checkAvailability(zone) 
+Input: a valid zone -> Effect: returns a list containing all the available cars in that zone
+Input: an invalid zone -> Effect: an InvalidZoneException is generated
+Input: a null zone -> Effect: a NullZoneException is generated
+
+
+3.3 Integration test case I3
+
+Test Case Identifier 		I3T1
+Test Item(s) 				Availability Helper--->Reservation Controller
+Environmental Needs 		I1 succeeded
+
+changeTagRequest(car, tag) returns response
+Input: a valid car and a vaild tag -> Effect: if parameter tag != old(car.tag) returns positive response. Otherwise an UnconsistentChangeException is generated (in this case most of the times it happens because sameone else has been quicker than the user to reserve a car)
+Input: an invaild tag -> Effect: an InvalidTagException is generated
+
+3.4 Integration test case I4
+
+Test Case Identifier 		I4T1
+Test Item(s) 				Availability Helper--->Parking Controller
+Environmental Needs 		I1 succeeded
+
+changeTagRequest() explained above
+
+3.5 Integration test case I5
+
+Test Case Identifier 		I5T1
+Test Item(s) 				Selection Controller--->Map Manager
+Input Specification 		Post a SelectionController request
+Output Specification 		Check if the request is correctly routed
+Environmental Needs 		I1,I2 succeeded
+
+
+Test Case Identifier 		I5T1
+Test Item(s) 				Reservation Controller--->Map Manager
+Input Specification 		Post a ReservationController request
+Output Specification 		Check if the request is correctly routed
+Environmental Needs 		I1,I2,I3 succeeded
+
+placeReservation(car) returns a response
+Input: a valid car -> Effect: ReservationController will invoke AvailabilityHelper.changeTagRequest() and get the response R. R is then returned
+Input: an null or invaild car -> Effect: a NullCarException or InvalidCarException is generated
+
+getReservation(user) returns a Reservation
+Input: the user logged to the client -> Effect: ReservationController looks in the database for an active reservation made by the user. If found its returned, otherwise MissingReservationException is generated
+
+Test Case Identifier 		I5T1
+Test Item(s) 				Ride Controller--->Map Manager
+Input Specification 		Post a RideController request
+Output Specification 		Check if the request is correctly routed
+Environmental Needs 		I1,I2,I3 succeeded
+
+
+startRide(reservation, userLocation) returns a response
+Input: active reservation(checked by ReservationController.getReservation(u) ) and userLocation -> Effect: if the user is not close to the car a NotCloseException is throwed. Otherwise the Ride object is updated and a positive response is retourned.
+
+getRide(user)
+Input: the user logged to the client -> Effect: ReservationController looks in the database for an active ride of the user. If found its returned, otherwise MissingRideException is generated
+
+
+Test Case Identifier 		I5T1
+Test Item(s) 				Parking Controller--->Map Manager
+Input Specification 		Post a ParkingController request
+Output Specification 		Check if the request is correctly routed
+Environmental Needs 		I1,I2,I3 succeeded
+
+endRide(Ride)
+Effect: if the ignite is still on, a StillIgnitedException is generated
+if the current location of the car is a legal spot to park, a IllegalSpotException is generated
+otherwise DiscountController.getPrice(Ride) is called, the user's credit updated, and a positive response returned
+
+getSpecialParkingAreas(destination) returns SpecialParkingAreas
+Input: invalid destination -> Effect: an InvalidDestinationException is generated
+Input: valid destination -> Effect: returns a possibly empty SpecialParkingArea list
+
+Test Case Identifier 		I5T1
+Test Item(s) 				Discount Controller--->Map Manager
+Input Specification 		Post a DiscountController request
+Output Specification 		Check if the request is correctly routed
+Environmental Needs 		I1,I2,I3,I4 succeeded
+
+getPrice(Ride)
+Input: an invalid Ride -> Effect: an InvalidRideException is generated
+Input: an ongoing Ride or not properly parked -> Effect: a NotParkedException is generated
+otherwise it will return the price of the ride
+
+3.6 Integration test case I6
+
+Test Case Identifier 		I6T1
+Test Item(s) 				Map Manager<---Client Application
+Input Specification 		Create typical User/Client inputs
+Output Specification 		Check if the correct functions are called in the Map Manager
+Environmental Needs 		I1,I2,I3,I4,I5 succeeded
+
+
+3.6 Integration test case I7
+
+Test Case Identifier 		I7T1
+Test Item(s) 				Account Manager<---Client Application
+Environmental Needs 		I1,I2,I3,I4,I5 succeeded
+
+
+
+3.7 Integration test case I8
+
+Test Case Identifier 		I8T2
+Test Item(s) 				SMS Gateway--->Notification Helper
+Input Specification 		Create typical SMS Gateway inputs
+Output Specification 		Check if the SMS is delivered
+Environmental Needs 		I1,I2,I3,I4,I5,I6,I7 succeeded
+
+3.8 Integration test case I9
+
+Test Case Identifier 		I9T2
+Test Item(s) 				PUSH Gateway--->Notification Helper
+Input Specification 		Create typical PUSH Gateway inputs
+Output Specification 		Check if the correct functions are called in the PUSH Gateway 
+Environmental Needs 		I1,I2,I3,I4,I5,I6 succeeded
+
+
+3.9 Integration test case I10
+
+Test Case Identifier 		I10T2
+Test Item(s) 				Notification Helper--->Map Manager
+Environmental Needs 		I1,I2,I3,I4,I5,I6,I7,I8,I9 succeeded
+
+
+
+
+
+integration of controllers not tested because their interactions pass through MapManager
