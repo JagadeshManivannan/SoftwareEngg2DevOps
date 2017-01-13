@@ -1,0 +1,4 @@
+We adopted the bottom-up approach to minimize the stubs usage, using drivers instead. Drivers used: 
+- AvailabilityHelper driver: this testing module will invoke the methods exposed by the AvailabilityHelper component in order to test its interaction with the DBMS.
+- Controllers driver: this testing module will invoke the methods exposed by the Controllers (acting like MapManager) in order to test its interaction with each other.
+A stub acting like the Client is needed to fulfill the request/response protocol needed for client/system interaction.
