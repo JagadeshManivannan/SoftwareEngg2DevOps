@@ -73,7 +73,7 @@ Environmental Needs 		I1,I2,I3 succeeded
 
 
 startRide(reservation, userLocation) returns a response
-Input: active reservation(checked by ReservationController.getReservation(u) ) and userLocation -> Effect: if the user is not close to the car a NotCloseException is throwed. Otherwise the Ride object is updated and a positive response is retourned.
+Input: active reservation(checked by ReservationController.getReservation(u) ) and userLocation -> Effect: if the user is not close to the car a NotCloseException is throwed. Otherwise the Ride, Reservation and Car objects are updated and a positive response is retourned.
 
 getRide(user)
 Input: the user logged to the client -> Effect: ReservationController looks in the database for an active ride of the user. If found its returned, otherwise MissingRideException is generated
@@ -88,7 +88,7 @@ Environmental Needs 		I1,I2,I3 succeeded
 endRide(Ride)
 Effect: if the ignite is still on, a StillIgnitedException is generated
 if the current location of the car is a legal spot to park, a IllegalSpotException is generated
-otherwise DiscountController.getPrice(Ride) is called, the user's credit updated, and a positive response returned
+otherwise the Ride and Car objects are updated, DiscountController.getPrice(Ride) is called, the user's credit updated, and a positive response returned
 
 getSpecialParkingAreas(destination) returns SpecialParkingAreas
 Input: invalid destination -> Effect: an InvalidDestinationException is generated
