@@ -8,3 +8,5 @@
 
 #### Assignments:
  - Requirement Analysis and Specification Document: [link](./rasd/rasd.pdf) to the PDF
+ - Design Document: [link](./dd/dd.pdf) to the PDF
+ - Integration Test Plan Document: [link](./itpd/itpd.pdf) to the PDF
