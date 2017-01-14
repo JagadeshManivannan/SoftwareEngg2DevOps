@@ -1,0 +1,67 @@
+2.4 Sequence of Component/Function Integration
+
+
+In this section we are going to describe the order of integration (and integra-
+tion testing) of the various components and subsystems of Power Enjoy.
+As a notation, an arrow going from component C1 to component C2 means that C1 is necessary for C2 to function and so it must have already been
+implemented.
+
+2.4.1 Software Integration Sequence
+
+Following the already mentioned bottom-up approach, we now describe how
+the various subcomponents are integrated together to create higher level
+subsystems.
+
+Database Management System
+
+The very basic elements that needs to be integrated and tested are Database and Availability Helper.We test this first because of the bottom up approach and
+all the other subsystems components relies in this structure.
+
+Controller  System
+The secons step is the integration of the components of the Controller System. Most of the important operations are assumed to be executed/performed
+by the components of the controller system. We proceed further by showing which components are executed or integrated in sequence.
+
+First,we proceed by integrating the Selection Controller with the DB and availability helper.
+
+Dia here- ITP1
+
+
+Then the same procedure is followed by replacing the selection controller with other components of the controller system in the following sequence: Reservation Controller,
+Ride controller,Parking Controller, Discount Controller.
+
+Map Manager System
+
+Generally the communication between the controllers happens through the Map Manager. So, the Map Manager has to be integrated with the Controllers for their 
+communication and also for interaction of the Client with the system.
+
+PLACE DIA ITP2,ITP3
+
+Notification System
+
+The next integration test is executed with the notification system. This notification system is developed by the third party and we just integrate and test here 
+the functionalities.For example: After reserving a car, the user is notified with a confirmation acknowledgement.
+
+PLACE THE DIA IPT4,ITP5,ITP7IPT8 AND COMPONENTS OF NOTIFICATION SYSTEM HERE
+
+Payment System
+
+The payment system is same like the notification system as it is developed by the third party and we just integrate and test here the functionalities.
+
+PLACE Components of the Payment system dia here
+
+Account Manager System
+
+After the integration of the above systems , the account manager is integrated and tested here. The account manager has informatioon about the user detials and allows
+him/her to edit personal informations, upload documents and other services. 
+
+PLACE DIA ITP9 HERE.
+
+
+SUBSYSTEM INTEGRATION SEQUENCE
+
+Finally test integrate and test the CLIENT system with the overall integrated systems. The high level sybsystems are integrated together and 
+the integration architecture of the Power Enjoy service is shown here.
+
+PLACE THE COMPONENTS OF CONTROLLER SYSTEM HERE.
+
+
