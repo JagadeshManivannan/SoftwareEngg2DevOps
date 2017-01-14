@@ -43,6 +43,10 @@ Environmental Needs 		I1 succeeded
 
 changeTagRequest() explained above
 
+getSpecialParkingAreas(destination) returns SpecialParkingAreas
+Input: invalid destination -> Effect: an InvalidDestinationException is generated
+Input: valid destination -> Effect: returns a possibly empty SpecialParkingArea list
+
 3.5 Integration test case I5
 
 Test Case Identifier 		I5T1
@@ -90,9 +94,7 @@ Effect: if the ignite is still on, a StillIgnitedException is generated
 if the current location of the car is a legal spot to park, a IllegalSpotException is generated
 otherwise the Ride and Car objects are updated, DiscountController.getPrice(Ride) is called, the user's credit updated, and a positive response returned
 
-getSpecialParkingAreas(destination) returns SpecialParkingAreas
-Input: invalid destination -> Effect: an InvalidDestinationException is generated
-Input: valid destination -> Effect: returns a possibly empty SpecialParkingArea list
+
 
 Test Case Identifier 		I5T1
 Test Item(s) 				Discount Controller--->Map Manager
