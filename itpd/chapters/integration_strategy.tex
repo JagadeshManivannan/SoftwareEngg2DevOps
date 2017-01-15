@@ -29,16 +29,22 @@ Moreover, working bottom-up allows us to follow more carefully the development p
 We want to test using the real values and functionalities. The integration tests described in this documents are at the component level. The integration tests of lower level code modules are described in the corresponding components unit test.
 
 \section{Sequence of component/Function integration}
-In this section we are going to describe the order of integration (and integration testing) of the various components and subsystems of Power Enjoy.As a notation, an arrow going from component C1 to component C2 means that C1 is necessary for C2 to function and so it must have already beenimplemented.
+In this section we are going to describe the order of integration (and integration testing) of the various components and subsystems of Power Enjoy.
+As a notation, an arrow going from component C1 to component C2 means that C1 is necessary for C2 to function and so it must have already been
+implemented.
 
 \subsection{Software integration sequence}
-Following the already mentioned bottom-up approach, we now describe howthe various subcomponents are integrated together to create higher levelsubsystems.
+Following the already mentioned bottom-up approach, we now describe how
+the various subcomponents are integrated together to create higher level
+subsystems.
 
 \subsubsection*{Database Management System}
-The very basic elements that needs to be integrated and tested are Database and Availability Helper. We test this first because of the bottom up approach andall the other subsystems components relies in this structure.
+The very basic elements that needs to be integrated and tested are Database and Availability Helper. We test this first because of the bottom up approach and
+all the other subsystems components relies in this structure.
 
 \subsubsection*{Controller System}
-The second step is the integration of the components of the Controller System. Most of the important operations are assumed to be executed/performedby the components of the controller system. We proceed further by showing which components are executed or integrated in sequence.
+The second step is the integration of the components of the Controller System. Most of the important operations are assumed to be executed/performed
+by the components of the controller system. We proceed further by showing which components are executed or integrated in sequence.
 
 First, we proceed by integrating the Selection Controller with the database and Availability Helper.
 
@@ -49,6 +55,12 @@ First, we proceed by integrating the Selection Controller with the database and 
 \end{figure}
 
 Then the same procedure is followed by replacing the selection controller with other components of the controller system in the following sequence: Reservation Controller, Ride controller, Parking Controller, Discount Controller.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth,keepaspectratio]{figures/itp6.eps}
+	\label{fig:itp6}
+\end{figure}
 
 \subsubsection*{Map Manager System}
 Generally the communication between the controllers happens through the Map Manager. So, the Map Manager has to be integrated with the Controllers for their communication and also for interaction of the Client with the system.
@@ -68,7 +80,61 @@ Generally the communication between the controllers happens through the Map Mana
 \subsubsection*{Notification System}
 The next integration test is executed with the notification system. This notification system is developed by the third party and we just integrate and test here the functionalities. For example: after reserving a car, the user is notified with a confirmation acknowledgement.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth,keepaspectratio]{figures/itp4.eps}
+	\label{fig:itp4}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=4cm,keepaspectratio]{figures/itp5.eps}
+	\label{fig:itp5}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=4cm,keepaspectratio]{figures/itp7.eps}
+	\label{fig:itp7}
+\end{figure}
+
+\newpage
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=4cm,keepaspectratio]{figures/itp8.eps}
+	\label{fig:itp8}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=6.285cm,keepaspectratio]{figures/components_notification.eps}
+	\label{fig:components_notification}
+\end{figure}
+
 \subsubsection*{Payment System}
+The payment system is same like the notification system as it is developed by the third party and we just integrate and test here the functionalities.
+
+\newpage
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=4.38cm,keepaspectratio]{figures/components_payment.eps}
+	\label{fig:components_payment}
+\end{figure}
+
 \subsubsection*{Account Manager System}
+After the integration of the above systems, the account manager is integrated and tested here. The account manager has information about the user details and allowshim/her to edit personal informations, upload documents and other services. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=8.86cm,keepaspectratio]{figures/itp9.eps}
+	\label{fig:itp9}
+\end{figure}
 
 \subsection{Subsystem integration sequence}
+Finally test integrate and test the Client system with the overall integrated systems. The high level subsystems are integrated together and the integration architecture of the Power Enjoy service is shown here.
+
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[height=\textheight,keepaspectratio]{figures/components_controller.eps}
+%	\label{fig:components_controller}
+%\end{figure}
