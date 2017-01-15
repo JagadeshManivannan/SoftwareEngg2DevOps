@@ -1,1 +1,123 @@
 \chapter{Individual steps and test description}
+
+In this chapter we are going to describe the tests that need to be executed for every couple of components which interact with each other. The integration between controllers is not tested because their interactions take place through the MapManager.
+
+\section{Integration test case I1}
+\begin{table}[h]
+	\centering
+	\begin{tabular*}{\textwidth}{p{4.4cm} @{\extracolsep{0.5cm}} p{8.5cm}}
+		\hline
+		\textbf{Test case identifier} & I1T1 \\
+		\hline
+		\textbf{Test item(s)} & Database \(\rightarrow\) Availability Helper \\
+		\hline
+		\textbf{Input specification} & Create typical SQL query (Database inputs) \\
+		\hline
+		\textbf{Output specification} & Check if the correct functions are called in the Availability Helper \\
+		\hline
+		\textbf{Environmental needs} & Necessary input parameters for testing \\
+		\hline
+	\end{tabular*}
+\end{table}
+
+\section{Integration test case I2}
+\begin{table}[h]
+	\centering
+	\begin{tabular*}{\textwidth}{p{4.4cm} @{\extracolsep{0.5cm}} p{8.5cm}}
+		\hline
+		\textbf{Test case identifier} & I2T1 \\
+		\hline
+		\textbf{Test item(s)} & Availability Helper \(\rightarrow\) Selection Controller \\
+		\hline
+		\textbf{Input specification} & -- \\
+		\hline
+		\textbf{Output specification} & -- \\
+		\hline
+		\textbf{Environmental needs} & I1 succeeded \\
+		\hline
+	\end{tabular*}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular*}{\textwidth}{|p{4.cm}|p{8.86cm}|}
+		\hline	
+		\multicolumn{2}{|c|}{checkAvailability(zone)} \\
+		\hline
+		\textit{Input} & \textit{Effect} \\
+		\hline
+		A valid zone & Returns a list containing all the available cars in that zone \\
+		\hline
+		An invalid zone & An InvalidZoneException is generated \\
+		\hline
+		An null zone & A NullZoneException is generated \\
+		\hline
+	\end{tabular*}
+\end{table}
+
+\section{Integration test case I3}
+\begin{table}[h]
+	\centering
+	\begin{tabular*}{\textwidth}{p{4.4cm} @{\extracolsep{0.5cm}} p{8.5cm}}
+		\hline
+		\textbf{Test case identifier} & I3T1 \\
+		\hline
+		\textbf{Test item(s)} &  Availability Helper \(\rightarrow\) Reservation Controller\\
+		\hline
+		\textbf{Input specification} & -- \\
+		\hline
+		\textbf{Output specification} & -- \\
+		\hline
+		\textbf{Environmental needs} & I1 succeeded \\
+		\hline
+	\end{tabular*}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular*}{\textwidth}{|p{4.cm}|p{8.86cm}|}
+		\hline	
+		\multicolumn{2}{|c|}{changeTagRequest(car, tag) returns response} \\
+		\hline
+		\textit{Input} & \textit{Effect} \\
+		\hline
+		A valid car and a valid tag & If parameter tag != old(car.tag) returns positive response. Otherwise an UnconsistentChangeException is generated (in this case most of the times it happens because someone else has been quicker than the user to reserve a car) \\
+		\hline
+		An invalid tag & An InvalidTagException is generated \\
+		\hline
+	\end{tabular*}
+\end{table}
+
+\newpage
+\section{Integration test case I4}
+\begin{table}[h]
+	\centering
+	\begin{tabular*}{\textwidth}{p{4.4cm} @{\extracolsep{0.5cm}} p{8.5cm}}
+		\hline
+		\textbf{Test case identifier} & I4T1 \\
+		\hline
+		\textbf{Test item(s)} & Availability Helper \(\rightarrow\) Parking Controller \\
+		\hline
+		\textbf{Input specification} & -- \\
+		\hline
+		\textbf{Output specification} & -- \\
+		\hline
+		\textbf{Environmental needs} & I1 succeeded \\
+		\hline
+	\end{tabular*}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular*}{\textwidth}{|p{4.cm}|p{8.86cm}|}
+		\hline	
+		\multicolumn{2}{|c|}{getSpecialParkingAreas(destination) returns SpecialParkingAreas} \\
+		\hline
+		\textit{Input} & \textit{Effect} \\
+		\hline
+		A valid destination & Returns a possibly empty SpecialParkingArea list \\
+		\hline
+		An invalid destination & An InvalidDestinationException is generated \\
+		\hline
+\end{tabular*}
+\end{table}
