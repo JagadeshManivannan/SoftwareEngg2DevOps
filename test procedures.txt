@@ -1,12 +1,16 @@
 TP1
 Purpose: Check wether the system
 - can correctly manage database records maintaining data consistency
-- can identify and manage user accounts
 - can receive requests from the client and properly execute them
-Procedure Steps: Execute I1-I7
+Procedure Steps: Execute I1-I6
 
 TP2
 Purpose: Check wether the system
 - can properly dispatch user notificatons and warnings, according to the notification type
+Procedure Steps: Execute I7-I9
+
+TP3
+Purpose: Check wether the system
+- can identify and manage user accounts
 - can handle user payments
-Procedure Steps: Execute I8-I10
+Procedure Steps: Execute I10-I12
