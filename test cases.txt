@@ -116,46 +116,50 @@ Output Specification 		Check if the correct functions are called in the Map Mana
 Environmental Needs 		I1,I2,I3,I4,I5 succeeded
 
 
-3.6 Integration test case I7
+3.7 Integration test case I7
 
-Test Case Identifier 		I7T1
-Test Item(s) 				Account Manager<---Client Application
-Environmental Needs 		I1,I2,I3,I4,I5 succeeded
-
-
-3.7 Integration test case I8
-
-Test Case Identifier 		I8T2
-Test Item(s) 				Payment Gateway--->Account Manager
-Input Specification 		Create typical Payment Gateway inputs
-Output Specification 		Check if the payment process correctly executes 
-Environmental Needs 		I1,I2,I3,I4,I5,I6,I7 succeeded
-
-
-3.8 Integration test case I9
-
-Test Case Identifier 		I8T2
+Test Case Identifier 		I7T2
 Test Item(s) 				SMS Gateway--->Notification Helper
 Input Specification 		Create typical SMS Gateway inputs
 Output Specification 		Check if the SMS is delivered
-Environmental Needs 		I1,I2,I3,I4,I5,I6,I7 succeeded
+Environmental Needs 		I1,I2,I3,I4,I5,I6 succeeded
 
-3.9 Integration test case I10
+3.8 Integration test case I8
 
-Test Case Identifier 		I9T2
+Test Case Identifier 		I8T2
 Test Item(s) 				PUSH Gateway--->Notification Helper
 Input Specification 		Create typical PUSH Gateway inputs
 Output Specification 		Check if the correct functions are called in the PUSH Gateway 
 Environmental Needs 		I1,I2,I3,I4,I5,I6 succeeded
 
 
-3.10 Integration test case I11
+3.9 Integration test case I9
 
-Test Case Identifier 		I10T2
+Test Case Identifier 		I9T2
 Test Item(s) 				Notification Helper--->Map Manager
-Environmental Needs 		I1,I2,I3,I4,I5,I6,I7,I9,I10 succeeded
+Environmental Needs 		I1,I2,I3,I4,I5,I6,I7,I8 succeeded
 
 
+3.10 Integration test case I10
+Test Case Identifier 		I10T3
+Test Item(s) 				DB--->Account Manager
+Input Specification 		Create typical SQL query(Database inputs)
+Output Specification 		Check if the correct functions are called in the Availability Helper
+
+
+3.11 Integration test case I11
+
+Test Case Identifier 		I11T3
+Test Item(s) 				Payment Gateway--->Account Manager
+Input Specification 		Create typical Payment Gateway inputs
+Output Specification 		Check if the payment process correctly executes 
+Environmental Needs 		I10 succeeded
+
+3.12 Integration test case I12
+
+Test Case Identifier 		I12T3
+Test Item(s) 				Account Manager<---Client Application
+Environmental Needs 		I10,I11 succeeded
 
 
 
