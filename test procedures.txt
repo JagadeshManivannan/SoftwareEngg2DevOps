@@ -1,0 +1,12 @@
+TP1
+Purpose: Check wether the system
+- can correctly manage database records maintaining data consistency
+- can identify and manage user accounts
+- can receive requests from the client and properly execute them
+Procedure Steps: Execute I1-I7
+
+TP2
+Purpose: Check wether the system
+- can properly dispatch user notificatons and warnings, according to the notification type
+- can handle user payments
+Procedure Steps: Execute I8-I10
