@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{minted}
+\usepackage{float}
 
 \fancypagestyle{plain}{
 	\fancyhf{}
@@ -26,6 +27,8 @@
 	\label{#1}#2}
 
 \newcommand\refitemtext[1]{\csname item#1\endcsname}
+
+\restylefloat{table}
 
 \begin{document}
 	
