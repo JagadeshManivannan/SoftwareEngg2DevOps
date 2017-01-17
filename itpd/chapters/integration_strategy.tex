@@ -18,6 +18,28 @@ Moreover, the integration process should start when the following percentages of
 The decision of requiring different amounts of functionalities according to the component is based on the order the integration will take place and on the time needed to accomplish the integration testing phase of each one.
 
 \section{Elements to be integrated}
+The integration tests are planned to be performed following the architectural division in layers given in the Design Document. Therefore this phase is divided in the following three steps, each for every subsystem:
+
+\paragraph{Database.} It represents the layer where data are stored and handled. The components to be integrated are:
+\begin{itemize}
+	\item Database
+	\item Availability Helper
+\end{itemize}
+
+\paragraph{Application server.} It includes all the business logic and provides web services so that users can interact with this layer from both the interfaces. The components to be integrated are:
+\begin{itemize}
+	\item Map Manager
+	\item Selection Controller
+	\item Reservation Controller
+	\item Ride Controller
+	\item Parking Controller
+	\item Discount Controller
+	\item Selection Controller
+	\item Account Manager
+\end{itemize}
+
+\paragraph{Client.} It includes all the implementations, that is to say the mobile App, the web app and the on-board application. These modules must be integrated
+individually with the layers they interface with.
 
 \section{Integration testing strategy}
 The items to be tested consist of the integration of the code modules developed for the Power Enjoy project. For testing we choose the bottom-up approach. This means that integration testing starts at the bottom level.
@@ -42,7 +64,7 @@ The second step is the integration of the components of the Controller System. M
 
 First, we proceed by integrating the Selection Controller with the database and Availability Helper.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=1.4cm,keepaspectratio]{figures/itp1.eps}
 	\label{fig:itp1}
@@ -50,7 +72,7 @@ First, we proceed by integrating the Selection Controller with the database and 
 
 Then the same procedure is followed by replacing the selection controller with other components of the controller system in the following sequence: Reservation Controller, Ride controller, Parking Controller, Discount Controller.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth,keepaspectratio]{figures/itp6.eps}
 	\label{fig:itp6}
@@ -59,13 +81,13 @@ Then the same procedure is followed by replacing the selection controller with o
 \subsubsection*{Map Manager System}
 Generally the communication between the controllers happens through the Map Manager. So, the Map Manager has to be integrated with the Controllers for their communication and also for interaction of the Client with the system.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=1.4cm,keepaspectratio]{figures/itp2.eps}
 	\label{fig:itp2}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=1.4cm,keepaspectratio]{figures/itp3.eps}
 	\label{fig:itp3}
@@ -74,32 +96,31 @@ Generally the communication between the controllers happens through the Map Mana
 \subsubsection*{Notification System}
 The next integration test is executed with the notification system. This notification system is developed by the third party and we just integrate and test here the functionalities. For example: after reserving a car, the user is notified with a confirmation acknowledgement.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth,keepaspectratio]{figures/itp4.eps}
 	\label{fig:itp4}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=4cm,keepaspectratio]{figures/itp5.eps}
 	\label{fig:itp5}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=4cm,keepaspectratio]{figures/itp7.eps}
 	\label{fig:itp7}
 \end{figure}
 
-\newpage
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=4cm,keepaspectratio]{figures/itp8.eps}
 	\label{fig:itp8}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=6.285cm,keepaspectratio]{figures/components_notification.eps}
 	\label{fig:components_notification}
@@ -108,8 +129,7 @@ The next integration test is executed with the notification system. This notific
 \subsubsection*{Payment System}
 The payment system is same like the notification system as it is developed by the third party and we just integrate and test here the functionalities.
 
-\newpage
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=4.38cm,keepaspectratio]{figures/components_payment.eps}
 	\label{fig:components_payment}
@@ -118,7 +138,7 @@ The payment system is same like the notification system as it is developed by th
 \subsubsection*{Account Manager System}
 After the integration of the above systems, the account manager is integrated and tested here. The account manager has information about the user details and allows him/her to edit personal informations, upload documents and other services. 
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[height=8.86cm,keepaspectratio]{figures/itp9.eps}
 	\label{fig:itp9}
@@ -127,7 +147,7 @@ After the integration of the above systems, the account manager is integrated an
 \subsection{Subsystem integration sequence}
 Finally test integrate and test the Client system with the overall integrated systems. The high level subsystems are integrated together and the integration architecture of the Power Enjoy service is shown here.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth,keepaspectratio]{figures/components_controller.eps}
 	\label{fig:components_controller}
