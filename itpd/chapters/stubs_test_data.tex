@@ -1,0 +1,9 @@
+\chapter{Program stubs and test data required}
+
+As we have mentioned in the Integration Testing Strategy section, we adopted the bottom-up approach for the components integration and testing. For this reason the usage of stubs is minimized, but a few number of drivers is needed to perform the necessary method invocations of the integrated components that are going to be tested.
+
+Below the reader can find the list of the required drivers for the integration test plan.
+\begin{itemize}
+	\item \emph{AvailabilityHelper driver}. This testing module will invoke the methods exposed by the AvailabilityHelper component in order to test its interaction with the database management system
+	\item \emph{Controllers driver}. This testing module will invoke the methods exposed by the Controllers (acting like MapManager) in order to test its interaction with each other.A stub acting like the Client is needed to fulfill the request/response protocol needed for client/system interaction
+\end{itemize}
