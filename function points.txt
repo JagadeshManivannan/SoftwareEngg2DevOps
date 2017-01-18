@@ -1,0 +1,38 @@
+
+ILF: costs(simple,mid,complex) : 7 10 15
+RESERVATION(user,car,time,status) MID
+RIDE(user,resv,starttime, status) MID
+USER(data,balance, resv, ride) COMPLEX
+PAYMENT(user,ammount) SIMPLE
+CAR(id,loc, status) SIMPLE
+PARKING(id,car) SIMPLE
+DISCOUNT(id, spec) SIMPLE
+
+ELF: costs: 5 7 10
+The only external system we interact with is the licence office, but as explained in the RASD we designed it as an external inquiry: we upload the licence provided by the user retrieving a STRING response. We can then skip the licence office in this section.
+
+
+INPUT: costs: 3 4 6
+register- user SIMPLE
+login- user SIMPLE
+logout- user SIMPLE
+update- licence user SIMPLE
+reserve car- resv,car,user COMPLEX
+abort reservation-  resv,car,user COMPLEX
+open car- resv,car,user,ride COMPLEX
+end ride- car resv,car,user,ride COMPLEX
+plug- car,parking MID
+[admin] ban user- user SIMPLE
+[admin] add / remove car- car SIMPLE
+
+
+OUTPUT: costs: 4 5 7
+notify - user COMPLEX
+
+INQUIRY: costs: 3 4 6
+get available cars (zone)- car MID
+get payment history-  payment SIMPLE
+get active reservation- resv SIMPLE
+get available discounts-  discount SIMPLE
+
+FP = (4*7 + 2*10 + 1*15) + 0 + (6*3 + 2*4 + 4*6) + 7 + (3*3 + 4) = 63 + 50 + 7 + 13 = 133
