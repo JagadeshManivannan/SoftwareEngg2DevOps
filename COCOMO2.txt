@@ -1,0 +1,312 @@
+2.2 Cost and Effort estimation: COCOMO II
+
+Here, in this section we are going to use the COCOMO II approach to estimate the
+cost and effort needed to develop Power Enjoy application.
+
+
+2.2.1 Scale Drivers
+
+In order to evaluate the values of the scale drivers, we refer to the following offcial COCOMO II table:
+
+
+								Scale Factor values, SFj , for COCOMO II Models
+								
+
+Scale Factors					Very Low 					Low 					Nominal							 High 					Very High 				Extra High
+
+PREC					thoroughlyunprecedented		largely	unprecedented		somewhat unprecedented		generally familiar 			largely familiar  		thoroughly familiar	
+SFj 								6.20 					4.96 						3.72 						2.48 					1.24 						0.00
+FLEX 								rigorous 		occasional relaxation		some relaxation				generalconformity			some conformity 			generalgoals				
+SFj 								5.07 					4.05 						3.04 						2.03 					1.01 						0.00
+RESL 							little(20%)					some(40%)				often(60%)					generally(75%)				mostly(90%)				full(100%)
+SFj 								7.07 					5.65 						4.24 						2.83 					1.41 						0.00
+TEAM 				very difficult interactions	   some difficult interactions	basically cooperative interactions 	largely cooperative highly cooperative 		seamless interactions
+SFj									5.48 					4.38 						3.29 						2.19 					1.10 						0.00 
+PMAT 						Level 1 Lower				Level 1	Upper					Level 2 					Level 3 				Level 4 				Level 5
+SFj									 7.80 					6.24 						4.68 						3.12 					1.56 						0.00 
+
+
+USE THE TABLE WHICH ALREADY EXISTS
+
+A brief description for each scale driver:
+
+*Precedentedness: This factor determines or reveals the level of exposure or experience in development of large scale projects or similar kind of 
+projects that out team has done before. Since we have developed few projets like this,we can set this value to be Nominal.
+
+*Development flexibility:It determines the degree of fexibility in the development process with respect to the external specification and requirements.
+In our project, the functionalities and requirements are clear and well defined with no specific mention about the technology.Hence this value would be low.
+
+*Architecture / Risk Resolution: It determines the level of awareness and reactiveness with
+respect to risks.Since we have an extremely good risk management plan, we consider this value to be very high.
+
+*Team Cohesion: It determines if all the Stakeholders aree able to work in a team and share same vision and commitment.Since our team is highly co-operative,
+the value is very high.
+
+*Process Maturity:We have a done an extremely fair work to meet our goals successfully in this project. Since we had prior experience in 
+successfully dealing these kind of projects, the value is set to Level 4.
+
+The results of our evaluation is the following:
+
+
+Scale Driver 							Factor 					Value
+Precedentedness(PREC) 					Nominal 				3.72
+Development flexibility(FLEX) 			Low 					4.05
+Risk resolution (RESL) 					Very high 				1.41
+Team cohesion (TEAM) 					Very high				1.10
+Process maturity (PMAT) 				Level 4 				1.56
+Total 															11.84
+
+
+2.2.2 Cost Drivers
+
+
+PRODUCT FACTORS:-
+
+*Required Software Reliability(RELY):
+The software application is developed in such a way that the main aim is to reserve and take a ride in the Cars in the city. Any malfunctioning 
+could lead to important financial loss. Considering this, the RELY cost driver is set to high.
+
+																RELY Cost Drivers
+RELY Descriptors 				slightlyinconvenience  		easily recoverablelosses  		moderate recoverable losses  	high financial loss 	 risk to human life
+
+Rating level 						Very low 						Low 						Nominal 						High 					Very High 			Extra High
+Effortort multipliers 				0.82 							0.92 						1.00 							1.10 					1.26 				n/a
+
+
+
+Database size(DATA):
+This factor considers the effective size of our database. We do'nt know this value exactly.But based on the lower and upper bound
+values of the SLOC, which is 10.000-15.000 SLOC, we can estimate roughly that our system can reach a 3GB database size. Since it is
+distributed over 10.000-15.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 209 and 314,
+resulting in the DATA cost driver being high.
+
+																	DATA Cost Drivers
+DATA Descriptors 				 						  			D/P<10 						10<=D/P<=100 				100<=D/P<=1000 	 			D/P>10
+
+Rating level 						Very low 						Low 						Nominal 						High 					Very High 			Extra High
+Effortort multipliers 				n/a								0.90 						1.00 							1.14 					1.28 					n/a
+
+
+*Product complexity(CPLX):
+This factor is related to the complex logics involved in implementing the product as a whole.
+Hence, we set it to very high according to the CPLX cost driver table.
+
+																	CPLX Cost Drivers
+
+
+Rating level 						Very low 						Low 						Nominal 						High 					Very High 			Extra High
+Effortort multipliers 				0.73 							0.87 						1.00 							1.17 						1.34			 1.74
+
+
+*Developed for Reusability(RUSE):
+In our project, we use many individual piece of codes that can be made reusable for other services or functions.
+Hence the RUSE cost driver is set to nominal.
+
+																	RUSE Cost Drivers
+RUSE Descriptors 													None 						Across project   			Across program  		Across product line   		Across multiple product lines
+Rating level 						Very low 						Low 						Nominal 						High 					Very High 					Extra High
+Effortort multipliers 				n/a 							0.95 						1.00 							1.07 					1.15 							1.24
+
+*Documentation Match to Life-Cycle Needs (DOCU):
+This factor describes the relationship between the documentation and the application requirements.The product life-cycle needs are explicitly mentioned 
+clearly in the documentation.Hence the DOCU cost driver is set to nominal.
+
+																		DOCU Cost Drivers
+DOCU Descriptors 		Many life-cycle needs uncovered  	Some life-cycleneeds uncovered   Right sized to life-cycle needs  Excessive for life-cycle needs Very excessive for life-cycle needs
+Rating level 						Very low 						Low 						Nominal 						High 							Very High 							Extra High
+Effortort multipliers 				0.81 							0.91 						1.00 							1.11 							1.23 								n/a
+
+
+PLATFORM FACTORS:-
+
+
+*Execution Time Constraint (TIME):
+This factor describes the approximated value of CPU usage with respect to the hardware specifications.Our Power Enjoy application
+has vast functionalities as a software and hence the TIME cost driver is set to be very high.
+
+																			TIME Cost Drivers
+TIME Descriptors 																		<=50% use of available execution time  	70% use of available execution time  85% use of available execution time  	95% use of available execution time
+Rating level 						Very low 						Low 						Nominal 							High 								Very High 								Extra High
+Effortort multipliers 				n/a 							n/a 						1.00 								1.11 								1.29 										1.63
+
+*Main Storage Constraint (STOR):
+This factor describes the approximated storage space with respect to the hardware specifications.Our Power Enjoy application
+has vast functionalities as a software.Keeping this in mind, the disk drives can store upto enough terrabytes and hence the STOR cost driver is set to be high.
+
+																			STOR Cost Drivers
+STOR Descriptors 																		<=50% use of available execution storage  	70% use of available execution storage  85% use of available execution storage  	95% use of available execution storage
+Rating level 						Very low 						Low 						Nominal 								High 									Very High 									Extra High
+Effortort multipliers 				n/a 							n/a 						1.00 									1.05 									1.17 										1.46
+
+
+*Platform Volatility (PVOL):
+	This factor describes the change in the basic or fundamental platform in which the system is designed. We do'nt change the platform 
+	often except for very few major releases or updated requested by the client.This will be done approximately for every 5months to be in sync with 
+	the latest evolving or trending technologies.Hence, the PVOL cost driver is set to nominal.
+	
+	
+																			PVOL Cost Drivers
+PVOL Descriptors 								Major change every 12 mo.;minor change every 1 mo.  		Major:6mo;minor:2wk.		Major:2mo,minor:1wk				Major:2wk; minor: 2days
+Rating level 						Very low 						Low 									Nominal 								High 					Very High 									Extra High
+Effortort multipliers 				n/a 							0.87 									1.00 									1.15 						1.30 									n/a
+
+*Analyst Capability (ACAP):
+This factor describes the potential analysis that has been done with respect to the potential implementation in real world. Since we have done a regressive analysis,
+the ACAP cost driver is set to be high.
+
+																ACAP Cost Drivers	
+ACAP Descriptors 					15th per-centile			35th percentile 					55th percentile  							75th percentile				90th percentile
+Rating level 						Very low 						Low 									Nominal 								High 					Very High 									Extra High
+Effortort multipliers 				1.42 							1.19 									1.00 									0.85 					0.71 											n/a
+
+
+*Programmer Capability (PCAP):
+This factor describes the ability of the programmer to do a work without much difficulty. Our project has not been implemented yet our programmers
+have executed several projects like this successfully and hence the  PCAP cost driver is set to be high.
+
+																PCAP Cost Drivers	
+PCAP Descriptors 					15th per-centile			35th percentile 						55th percentile  						75th percentile				90th percentile
+Rating level 						Very low 						Low 									Nominal 								High 					Very High 									Extra High
+Effortort multipliers 				1.34 							1.15 									1.00 									0.88 						0.76 										n/a
+
+*Personnel Continuity (PCON):
+This factor describes the personnel turnover anually. Since our project is a short term project, the  PCON cost driver is set to be very low.
+
+																PCON Cost Drivers	
+PCON Descriptors 					48% /year					24% /year  									12% /year							6% / year 					3% / year
+Rating level 						Very low 						Low 									Nominal 								High 					Very High 									Extra High
+Effortort multipliers 				1.29 							1.12 									1.00 									0.90 					0.81 											n/a
+
+*Applications Experience (APEX):
+Our team members are quite experienced with this kind of project development and hence the  APEX cost driver is set to be high.
+
+																APEX Cost Drivers	
+APEX Descriptors 					<= 2 months						6 months 								1 year 									3 years 				6 years
+Rating level 						Very low 						Low 									Nominal 								High 					Very High 									Extra High
+Effortort multipliers 				1.22 							1.10 									1.00 									0.88 					0.81 											n/a
+
+*Platform Experience (PLEX):
+Our team has a good and stable experience in Java EE platform and also a good knowledge about the integaration with UI,Databse and other tiers.
+Hence the  PLEX cost driver is set to be high.
+
+																PLEX Cost Drivers	
+PLEX Descriptors 					<= 2 months						6 months 								1 year 									3 years 				6 years
+Rating level 						Very low 						Low 									Nominal 								High 					Very High 									Extra High
+Effortort multipliers 				1.19 							1.09 									1.00 									0.91 						0.85										n/a
+
+*Language and Tool Experience (LTEX):
+As we have mentioned before, since the knowledge of our programmers are good enough on this kind of project and Java EE platform, they possess
+a good standard of using tools in the development environment, server side and client side integration,etc. Hence the  LTEX cost driver is set to be high.
+
+																LTEX Cost Drivers	
+LTEX Descriptors 					<= 2 months						6 months 								1 year 									3 years 				6 years
+Rating level 						Very low 						Low 									Nominal 								High 					Very High 									Extra High
+Effortort multipliers 				1.20 							1.09 									1.00 									0.91 						0.84										n/a
+
+
+PROJECT FACTORS:-
+
+
+*Use of Software Tools (TOOL):
+Our application environment is complete and well integrated, so we will set this parameter as high.
+
+																TOOL Cost Drivers	
+TOOL Descriptors 			edit, code,debug	simple,frontend,backendCASE,little integration		basic life-cycletools,moderately integrated		strong,mature life-cycle tools,moderately integrated		strong,mature,proactivelife-cycletools, well integrated with processes,methods,reuse
+Rating level 					Very low 						Low 									Nominal 														High 												Very High 																				Extra High
+Effortort multipliers 			1.17 							1.09 									1.00 															0.90 												0.78 																						n/a
+
+
+
+*Multisite Development (SITE):
+Our application is designed in such a way that it relies on Wideband Electronic Communication at extremely good speeds(for eg. 3G,4G) for connection.
+Hence the  SITE cost driver is set to be very high.
+
+																	SITE Cost Drivers	
+SITE :Collocation Descriptors 			International			Multi-city and Multicompany		Multi-city or Multicompany 			Same city or metro.area					Same building or complex 							Fully collocated 
+SITE :Communication Descriptors			Some phone, mail 		Individual phone, FAX 			Narrow band email 					Wideband electronic communication.		Wideband elect.comm.,occasional video conf.			Interactive multimedia 
+Rating level 							Very low 						Low 						Nominal 							High 									Very High 											Extra High
+Effortort multipliers 					1.22 							1.09 							1.00							 0.93 									0.86 													0.80
+
+
+
+
+GENERAL FACTOR:-
+
+*Required Development Schedule (SCED):
+The efforts was distributedor split equally in our project for all the documentation, yet there were certain time consuming process in analysing and 
+development of the RASD and the DD documents for precision. Hence, the  SCED cost driver is set to be high.
+
+
+																	SCED Cost Drivers	
+SCED Descriptors 					75% of nominal				85% of nominal 							100% of nominal							130% of nominal				160% of nominal 	
+Rating level 						Very low 						Low 									Nominal 								High 					Very High 									Extra High
+Effortort multipliers 				1.43 							1.14 									1.00 									1.00 					1.00 											n/a 
+
+
+
+Overall our results are expressed in the following table:
+Cost Driver 													Factor					 Value
+Required Software Reliability (RELY) 							High 					1.10
+Database size (DATA) 											High 					1.14
+Product complexity (CPLX) 										Very high 				1.34
+Required Reusability (RUSE) 									Nominal 				1.00
+Documentation match to life-cycle needs (DOCU) 					Nominal 				1.00
+Execution Time Constraint (TIME) 								Very high 				1.29
+Main storage constraint (STOR) 									High 					1.11
+Platform volatility (PVOL)										Nominal 				1.00
+Analyst capability (ACAP) 										High 					0.85
+Programmer capability (PCAP) 									High 					0.88
+Application Experience (APEX) 									High 					0.88
+Platform Experience (PLEX) 										High 					0.91
+Language and Tool Experience (LTEX) 							High 					0.91
+Personnel continuity (PCON) 									Very low 				1.12
+Usage of Software Tools (TOOL) 									High 					0.90
+Multisite development (SITE) 									Very high 				0.86
+Required development schedule (SCED)							High 					1.00
+Total 																					1.13694
+
+
+
+2.2.3 Effort Equation
+
+
+This final equation gives us the effort estimation measured in Person-Months(PM):
+
+Effort = A * EAF * KSLOC^E
+
+where:
+A = 2.94 ( for COCOMO II )
+EAF = product of all cost drivers(1.13694)
+E = exponent derived from the scale drivers. It is computed as :
+B + 0.01 * (Summation symbol) SF[i] = B + 0.01 * 11.84 = 0.91 + 0.1464 =1.0284  	//[PLEASE SEE THE FORMULA FROM EXAMPLE]
+in which B is equal to: 0.91 for COCOMO II .
+
+With this parameters we can compute the effort value, which has a lower
+bound of:
+
+Effort = A * EAF * KSLOC^E = 2.94 * 1.13694 *  dash   ^1.0284 =   dash   PM (equivalent symbol) 57 PM
+
+and an upper bound of:
+
+Effort = A * EAF * KSLOC^E = 2.94 * 1.13694 *   dash  ^1.0284 =  dash     PM (equivalent symbol) 85 PM
+
+
+
+2.2.4 Schedule estimation
+
+Regarding the final schedule, we are going to use the following formula:
+
+Duration = 3.67 * Effort^F
+
+As a lower bound, we consider
+
+F = 0.28 + 0 . 2 * (E - B) = 0.28 + 0 . 2 * 0.1464 = 0.30928
+Effort = 56.957 PM
+Duration = 3.67 * ( 56.957 )^ 0.30928 = 12.81 months
+
+while as an upper bound, we consider
+
+F = 0.28 + 0 . 2 * (E - B) = 0.28 + 0 . 2 * 0.1464 = 0.30928
+Effort = 84.737 PM
+Duration = 3.67 * (84.737)^ 0.30928 = 14.49 months
+
