@@ -57,14 +57,11 @@ The results of our evaluation is the following:
 		\hline
 		Scale Driver & Factor & Value \\
 		\hline
-		Precedentedness (PREC) & Nominal & 3.72
- \\
-		Development flexibility (FLEX) & Low & 4.05
-\\
+		Precedentedness (PREC) & Nominal & 3.72 \\
+		Development flexibility (FLEX) & Low & 4.05 \\
 		Risk resolution (RESL) & Very high & 1.41 \\
 		Team cohesion (TEAM) & Very high & 1.10 \\
-		Process maturity (PMAT) & Level 4 & 1.56
-\\
+		Process maturity (PMAT) & Level 4 & 1.56 \\
 		\hline
 		\multicolumn{2}{|l|}{Total} & 11.84 \\
 		\hline	
@@ -100,7 +97,10 @@ The results of our evaluation is the following:
 \begin{itemize}
 	\item \emph{Database size (DATA)}:
 	\begin{itemize}
-		 \item[] This factor considers the effective size of our database. We do'nt know this value exactly. But based on the lower and upper boundvalues of the SLOC, which is 10.000-15.000 SLOC, we can estimate roughly that our system can reach a 3GB database size. Since it isdistributed over 10.000-15.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 209 and 314,resulting in the DATA cost driver being high.
+		 \item[] This factor considers the effective size of our database. We do'nt know this value exactly. But based on the lower and upper bound
+values of the SLOC, which is 10.000-15.000 SLOC, we can estimate roughly that our system can reach a 3GB database size. Since it is
+distributed over 10.000-15.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 209 and 314,
+resulting in the DATA cost driver being high.
 	\end{itemize}
 \end{itemize}
 
@@ -122,7 +122,8 @@ The results of our evaluation is the following:
 \begin{itemize}
 	\item \emph{Product complexity (CPLX)}:
 	\begin{itemize}
-		\item[] This factor is related to the complex logics involved in implementing the product as a whole.Hence, we set it to very high according to the CPLX cost driver table.
+		\item[] This factor is related to the complex logics involved in implementing the product as a whole.
+Hence, we set it to very high according to the CPLX cost driver table.
 	\end{itemize}
 \end{itemize}
 
@@ -142,7 +143,8 @@ The results of our evaluation is the following:
 \begin{itemize}
 	\item \emph{Developed for Reusability (RUSE)}:
 	\begin{itemize}
-		\item[] In our project, we use many individual piece of codes that can be made reusable for other services or functions.Hence the RUSE cost driver is set to nominal.
+		\item[] In our project, we use many individual piece of codes that can be made reusable for other services or functions.
+Hence the RUSE cost driver is set to nominal.
 	\end{itemize}
 \end{itemize}
 
@@ -210,7 +212,8 @@ The results of our evaluation is the following:
 \begin{itemize}
 	\item \emph{Main Storage Constraint (STOR)}:
 	\begin{itemize}
-		\item[] This factor describes the approximated storage space with respect to the hardware specifications. Our PowerEnJoy applicationhas vast functionalities as a software. Keeping this in mind, the disk drives can store up to enough terabytes and hence the STOR cost driver is set to be high.
+		\item[] This factor describes the approximated storage space with respect to the hardware specifications. Our PowerEnJoy application
+has vast functionalities as a software. Keeping this in mind, the disk drives can store up to enough terabytes and hence the STOR cost driver is set to be high.
 	\end{itemize}
 \end{itemize}
 
@@ -272,3 +275,276 @@ The results of our evaluation is the following:
 		\hline
 	\end{tabular}
 \end{table}
+
+\begin{itemize}
+	\item \emph{Programmer Capability (PCAP)}:
+	\begin{itemize}
+		\item[] This factor describes the ability of the programmer to do a work without much difficulty. Our project has not been implemented yet our programmers
+have executed several projects like this successfully and hence the PCAP cost driver is set to be high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{PCAP cost drivers} \\
+		\hhline{|=======|}
+		PCAP descriptors & 15th percentile & 35th percentile & 55th percentile & 75th percentile & 90th percentile & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 1.34 & 1.15 & 1.00 & 0.88 & 0.76 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Applications Experience (APEX)}:
+	\begin{itemize}
+		\item[] Our team members are quite experienced with this kind of project development and hence the  APEX cost driver is set to be high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2.04cm}|p{1.96cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{APEX cost drivers} \\
+		\hhline{|=======|}
+		APEX descriptors & \(\leq\) 2 months & 6 months & 1 years & 3 years & 6 years & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 1.22 & 1.10 & 1.00 & 0.88 & 0.81 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Platform Experience (PLEX)}:
+	\begin{itemize}
+		\item[] Our team has a good and stable experience in Java EE platform and also a good knowledge about the integration with UI, Database and other tiers. Hence the PLEX cost driver is set to be high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2.04cm}|p{1.96cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{PLEX cost drivers} \\
+		\hhline{|=======|}
+		PLEX descriptors & \(\leq\) 2 months & 6 months & 1 years & 3 years & 6 years & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 1.19 & 1.09 & 1.00 & 0.91 & 0.85 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Language and Tool Experience (LTEX)}:
+	\begin{itemize}
+		\item[] As we have mentioned before, since the knowledge of our programmers are good enough on this kind of project and Java EE platform, they possess a good standard of using tools in the development environment, server side and client side integration,etc. Hence the LTEX cost driver is set to be high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2.04cm}|p{1.96cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{LTEX cost drivers} \\
+		\hhline{|=======|}
+		LTEX descriptors & \(\leq\) 2 months & 6 months & 1 years & 3 years & 6 years & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 1.20 & 1.09 & 1.00 & 0.91 & 0.84 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Personnel Continuity (PCON)}:
+	\begin{itemize}
+		\item[] This factor describes the personnel turnover annually. Since our project is a short term project, the PCON cost driver is set to be very low.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{PCON cost drivers} \\
+		\hhline{|=======|}
+		PCON descriptors & 48\%/year & 24\%/year & 12\%/year & 6\%/year & 3\%/year & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 1.29 & 1.12 & 1.00 & 0.90 & 0.81 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Project factors}
+
+\begin{itemize}
+	\item \emph{Use of Software Tools (TOOL)}:
+	\begin{itemize}
+		\item[] Our application environment is complete and well integrated, so we will set this parameter as high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{TOOL cost drivers} \\
+		\hhline{|=======|}
+		TOOL descriptors & edit, code, debug & simple, front-end, back-end CASE, little integration & basic life-cycle tools, moderately integrated & strong, mature life-cycle tools, moderately integrated & strong, mature, proactive life-cycle tools, well integrated with processes, methods, reuse & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 1.17 & 1.09 & 1.00 & 0.90 & 0.78 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Multisite Development (SITE)}:
+	\begin{itemize}
+		\item[] Our application is designed in such a way that it relies on wideband electronic communication at extremely good speeds (e.g. 3G, 4G) for connection. Hence the SITE cost driver is set to be very high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{SITE cost drivers} \\
+		\hhline{|=======|}
+		SITE collocation descriptors & interna-tional & multi-city and multi-company & multi-city or multi-company & same city or metro area & same building or complex & fully collocated \\
+		&&&&&& \\
+		SITE communications descriptors & some phone, mail & individual phone, FAX & narrow band email & wideband electronic communication & wideband electronic communication, occasional video conference & interactive multimedia \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 1.22 & 1.09 & 1.00 & 0.93 & 0.86 & 0.80 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{General factor}
+
+\begin{itemize}
+	\item \emph{Required Development Schedule (SCED)}:
+	\begin{itemize}
+		 \item[] The efforts was distributed or split equally in our project for all the documentation, yet there were certain time consuming process in analysing and development of the RASD and the DD documents for precision. Hence, the SCED cost driver is set to be high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{SCED cost drivers} \\
+		\hhline{|=======|}
+		SCED descriptors & 75\% of nominal & 85\% of nominal & 100\% of nominal & 130\% of nominal & 160\% of nominal & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 1.43 & 1.14 & 1.00 & 1.00 & 1.00 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Results}
+Overall our results are expressed in the following table:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|r|}
+		\hline
+		Cost Driver & Factor & Value \\
+		\hline
+		Required software reliability (RELY) & High & 1.10
+\\
+		Database size (DATA) & High & 1.14 \\
+		Product complexity (CPLX) & Very high & 1.34
+\\
+		Required reusability (RUSE) & Nominal & 1.00
+\\
+		Documentation match to life-cycle needs (DOCU) & Nominal & 1.00
+\\
+		Execution time constraint (TIME) & Very high & 1.29
+\\
+		Main storage constraint (STOR) & High & 1.11
+\\
+		Platform volatility (PVOL) & Nominal & 1.00
+\\
+		Analyst capability (ACAP) & High & 0.85
+\\
+		Programmer capability (PCAP) & High & 0.88
+\\
+		Application experience (APEX) & High & 0.88 \\
+		Platform Experience (PLEX) & High & 0.91
+\\
+		Language and Tool Experience (LTEX) & High & 0.91
+\\
+		Personnel continuity (PCON) & Very low & 1.12
+\\
+		Usage of Software Tools (TOOL) & High & 0.90
+\\
+		Multisite development (SITE) & Very high & 0.86
+\\
+		Required development schedule (SCED) & High & 1.00 \\
+		\hline
+		\multicolumn{2}{|l|}{Total} & 1.13694 \\
+		\hline	
+	\end{tabular}
+\end{table}
+
+\subsection{Effort equation}
+This final equation gives us the effort estimation measured in Person-Months (PM):
+\[ Effort = A \times EAF \times KSLOC^E \]
+where:
+\begin{nospaceflalign*}
+	& A = 2.94 \textnormal{ (for COCOMO II)} \phantom{\sum} \\
+	& EAF = 1.13694 \textnormal{ (product of all cost drivers)} \\
+	& E = B + 0.01 \times \sum_{i} SF[i] = B + 0.01 * 11.84 = 0.91 + 0.1464 = 1.0284 \\
+	& \textnormal{(exponent derived from the scale drivers, with B = 0.91 for COCOMO II)} \\
+\end{nospaceflalign*}
+
+With this parameters we can compute the effort value, which has a lower
+bound of:
+\begin{nospaceflalign*}
+	Effort = A \times EAF \times KSLOC^E & = 2.94 \times 1.13694 \times dash^{1.0284} \\
+	& = 4\textnormal{ PM} \approx dash\textnormal{ PM}
+\end{nospaceflalign*}
+and an upper bound of:
+\begin{nospaceflalign*}
+	Effort = A \times EAF \times KSLOC^E & = 2.94 \times 1.13694 \times dash^{1.0284} \\
+	& = 4\textnormal{ PM} \approx dash\textnormal{ PM}
+\end{nospaceflalign*}
+
+\subsection{Schedule estimation}
+Regarding the final schedule, we are going to use the following formula:
+\[ Duration = 3.67 \times Effort^F \]
+As a lower bound, we consider
+\begin{nospaceflalign*}
+	& F = 0.28 + 0.2 \times (E - B) = 0.28 + 0.2 \times 0.1464 = 0.30928
+\\
+	& Effort = 56.957\textnormal{ PM}
+\\
+	& Duration = 3.67 \times 56.957^{0.30928} = 12.81\textnormal{ months} \\
+\end{nospaceflalign*}
+while as an upper bound, we consider
+\begin{nospaceflalign*}
+	& F = 0.28 + 0.2 \times (E - B) = 0.28 + 0.2 \times 0.1464 = 0.30928
+\\
+	& Effort = 84.737\textnormal{ PM}
+\\
+	& Duration = 3.67 \times 84.737^{0.30928} = 14.49\textnormal{ months}
+\\
+\end{nospaceflalign*}

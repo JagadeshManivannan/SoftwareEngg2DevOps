@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{frontespizio}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
@@ -13,6 +14,11 @@
 \usepackage{longtable}
 \usepackage{caption}
 \usepackage{hhline}
+
+\newenvironment{nospaceflalign*}
+{\setlength{\belowdisplayskip}{0.1cm}%
+	\csname flalign*\endcsname}
+{\csname endflalign*\endcsname\ignorespacesafterend}
 
 \fancypagestyle{plain}{
 	\fancyhf{}
