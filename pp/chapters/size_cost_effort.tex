@@ -1,0 +1,274 @@
+\chapter{Project size, cost and effort estimation}
+
+\section{Size estimation}
+
+\section{Cost and effort estimation}
+In this section we are going to use the COCOMO II approach to estimate the
+cost and effort needed to develop the PowerEnJoy application.
+
+\subsection{Scale drivers}
+In order to evaluate the values of the scale drivers, we refer to the following official COCOMO II table:
+
+\begingroup
+\captionsetup{skip=10pt}
+\setlength{\LTleft}{-1.7cm plus -1fill}
+\setlength{\LTright}{\LTleft}
+\vspace*{0.4cm}
+\begin{longtable}{|c|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+	\hline
+	Scale factors & Very low & Low & Nominal & High & Very high & Extra high \\
+	\hline
+	PREC & thoroughly unprecedented & largely unprecedented & somewhat unprecedented & generally familiar & largely familiar & thoroughly familiar \\
+	SF\(_j\) & 6.20 & 4.96 & 3.72 & 2.48 & 1.24 & 0.00 \\
+	\hline
+	FLEX & rigorous & occasional relaxation & some relaxation & general conformity & some conformity & general goals \\
+	SF\(_j\) & 5.0 & 4.05 & 3.04 & 2.03 & 1.01 & 0.00 \\
+	\hline
+	RESL & little (20\%) & some (40\%) & often (60\%) & generally (75\%) & mostly (90\%) & full (100\%) \\
+	SF\(_j\) & 7.07 & 5.65 & 4.24 & 2.83 & 1.41 & 0.00 \\
+	\hline
+	TEAM & very difficult interactions & some difficult interactions & basically cooperative interactions & largely cooperative & highly cooperative & seamless interactions \\
+	SF\(_j\) & 5.48 & 4.38 & 3.29 & 2.19 & 1.10 & 0.00 \\
+	\hline
+	PMAT & Level 1 lower & Level  1 upper & Level 2 & Level 3 & Level 4  & Level 5 \\
+	SF\(_j\) & 7.80 & 6.24 & 4.68 & 3.12 & 1.56 & 0.00 \\
+	\hline
+	
+	\caption{Scale Factor values (SF\(_j\)) for COCOMO II Models}
+\end{longtable}
+\endgroup
+
+A brief description for each scale driver:
+\begin{itemize}
+	\item \emph{Precedentedness}: this factor determines or reveals the level of exposure or experience in development of large scale projects or similar kind of projects that out team has done before. Since we have developed few projects like this, we can set this value to be Nominal.
+	\item \emph{Development flexibility}: it determines the degree of flexibility in the development process with respect to the external specification and requirements. In our project, the functionalities and requirements are clear and well defined with no specific mention about the technology. Hence this value would be low.
+	\item \emph{Architecture/Risk resolution}: it determines the level of awareness and reactivity with
+respect to risks. Since we have an extremely good risk management plan, we consider this value to be very high.
+	\item \emph{Team cohesion}: it determines if all the Stakeholders are able to work in a team and share same vision and commitment. Since our team is highly co-operative,
+	the value is very high.
+	\item \emph{Process maturity}: we have a done an extremely fair work to meet our goals successfully in this project. Since we had prior experience in successfully dealing these kind of projects, the value is set to Level 4.
+\end{itemize}
+
+The results of our evaluation is the following:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|r|}
+		\hline
+		Scale Driver & Factor & Value \\
+		\hline
+		Precedentedness (PREC) & Nominal & 3.72
+ \\
+		Development flexibility (FLEX) & Low & 4.05
+\\
+		Risk resolution (RESL) & Very high & 1.41 \\
+		Team cohesion (TEAM) & Very high & 1.10 \\
+		Process maturity (PMAT) & Level 4 & 1.56
+\\
+		\hline
+		\multicolumn{2}{|l|}{Total} & 11.84 \\
+		\hline	
+	\end{tabular}
+\end{table}
+
+\subsection{Cost drivers}
+
+\subsubsection{Product factors}
+
+\begin{itemize}
+	\item \emph{Required Software Reliability (RELY)}:
+	\begin{itemize}
+			\item[] The software application is developed in such a way that the main aim is to reserve and take a ride in the Cars in the city. Any malfunctioning could lead to important financial loss. Considering this, the RELY cost driver is set to high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{RELY cost drivers} \\
+		\hhline{|=======|}
+		RELY descriptors & slightly inconvenience & easily recoverable losses & moderate recoverable losses & high financial loss & risk to human life & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 0.82 & 0.92 & 1.00 & 1.10 & 1.26 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Database size (DATA)}:
+	\begin{itemize}
+		 \item[] This factor considers the effective size of our database. We do'nt know this value exactly. But based on the lower and upper boundvalues of the SLOC, which is 10.000-15.000 SLOC, we can estimate roughly that our system can reach a 3GB database size. Since it isdistributed over 10.000-15.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 209 and 314,resulting in the DATA cost driver being high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{DATA cost drivers} \\
+		\hhline{|=======|}
+		DATA descriptors & & \(\frac{D}{P} < 10\) & \(10 \leq \frac{D}{P} < 100\) & \(100 \leq \frac{D}{P} < 1000\) & \(\frac{D}{P} \geq 1000\) & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & n/a & 0.90 & 1.00 & 1.14 & 1.28 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Product complexity (CPLX)}:
+	\begin{itemize}
+		\item[] This factor is related to the complex logics involved in implementing the product as a whole.Hence, we set it to very high according to the CPLX cost driver table.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{CPLX cost drivers} \\
+		\hhline{|=======|}
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 0.73 & 0.87 & 1.00 & 1.17 & 1.34 & 1.74 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Developed for Reusability (RUSE)}:
+	\begin{itemize}
+		\item[] In our project, we use many individual piece of codes that can be made reusable for other services or functions.Hence the RUSE cost driver is set to nominal.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{RUSE cost drivers} \\
+		\hhline{|=======|}
+		RUSE descriptors & & None & Across project & Across program & Across product line & Across multiple product \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & n/a & 0.95 & 1.00 & 1.07 & 1.15 & 1.24 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Documentation Match to Life-Cycle Needs (DOCU)}:
+	\begin{itemize}
+		\item[] This factor describes the relationship between the documentation and the application requirements. The product life-cycle needs are explicitly mentioned clearly in the documentation. Hence the DOCU cost driver is set to nominal.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{DOCU cost drivers} \\
+		\hhline{|=======|}
+		DOCU descriptors & Many life-cycle needs uncovered & Some life-cycle needs uncovered & Right sized to life-cycle needs & Excessive for life-cycle needs & Very excessive for life-cycle needs & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 0.81 & 0.91 & 1.00 & 1.11 & 1.23 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Platform factors}
+
+\begin{itemize}
+	\item \emph{Execution Time Constraint (TIME)}:
+	\begin{itemize}
+		\item[] This factor describes the approximated value of CPU usage with respect to the hardware specifications. Our PowerEnJoy application has vast functionalities as a software and hence the TIME cost driver is set to be very high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{TIME cost drivers} \\
+		\hhline{|=======|}
+		TIME descriptors & & & \(\leq 50\%\) use of available execution time & 70\% use of available execution time & 85\% use of available execution time & 90\% use of available execution time \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & n/a & n/a & 1.00 & 1.11 & 1.29 & 1.63 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Main Storage Constraint (STOR)}:
+	\begin{itemize}
+		\item[] This factor describes the approximated storage space with respect to the hardware specifications. Our PowerEnJoy applicationhas vast functionalities as a software. Keeping this in mind, the disk drives can store up to enough terabytes and hence the STOR cost driver is set to be high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{STOR cost drivers} \\
+		\hhline{|=======|}
+		STOR descriptors & & & \(\leq 50\%\) use of available storage & 70\% use of available storage & 85\% use of available storage & 90\% use of available storage \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & n/a & n/a & 1.00 & 1.05 & 1.17 & 1.46 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Platform Volatility (PVOL)}:
+	\begin{itemize}
+		\item[] This factor describes the change in the basic or fundamental platform in which the system is designed. We do'nt change the platform often except for very few major releases or updated requested by the client. This will be done approximately for every 5months to be in sync with the latest evolving or trending technologies. Hence, the PVOL cost driver is set to nominal.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{PVOL cost drivers} \\
+		\hhline{|=======|}
+		PVOL descriptors & & Major change every 12~months; minor change every 1~month & Major change every 6~months;\newline minor change every 2~weeks & Major change every 2~months;\newline minor change every 1~week & Major change every 2~weeks;\newline minor change every 2~days & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & n/a & 0.87 & 1.00 & 1.15 & 1.30 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \emph{Analyst Capability (ACAP)}:
+	\begin{itemize}
+		\item[] This factor describes the potential analysis that has been done with respect to the potential implementation in real world. Since we have done a regressive analysis, the ACAP cost driver is set to be high.
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[H]
+	\hspace*{-1.7cm}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+		\hline
+		\multicolumn{7}{|c|}{ACAP cost drivers} \\
+		\hhline{|=======|}
+		ACAP descriptors & 15th percentile & 35th percentile & 55th percentile & 75th percentile & 90th percentile & \\
+		\hline
+		Rating level & Very low & Low & Nominal & High & Very high & Extra high \\
+		\hline
+		Effort multipliers & 1.42 & 1.19 & 1.00 & 0.85 & 0.71 & n/a \\
+		\hline
+	\end{tabular}
+\end{table}
