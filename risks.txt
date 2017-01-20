@@ -1,0 +1,14 @@
+The work concerning the integration of the payment system remains quite
+vague at the time of the planning. As a consequence, it is not possible to estimate, with a
+reasonable level of confidence, that the needed effort remains low. To mitigate this risk the project
+manager decides to apply an higher weight to that task.
+
+
+The database implements an important number of tables and and intense query execution, so the integrity plays an important role. Experts should be involved (to be continued)
+OTHER DB RELATED RISKS SHOULD BE EXPOSED
+
+
+
+
+
+
