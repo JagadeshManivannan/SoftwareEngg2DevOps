@@ -1,5 +1,5 @@
 
-ILF: costs(simple,mid,complex) : 7 10 15
+-ILF: costs(simple,mid,complex) : 7 10 15
 RESERVATION(user,car,time,status) MID
 RIDE(user,resv,starttime, status) MID
 USER(data,balance, resv, ride) COMPLEX
@@ -11,14 +11,12 @@ DISCOUNT(id, spec) SIMPLE
 The application includes a number of ILFs that will be used to store the information about users, payments, reservations, rides, cars, parking slots and discounts. Most of them have a simple structure consisting in two or three fields, so we will assign simple weights to these entities. Reservation has a more complex structure: it saves the user who creates the reservation, the car involved, the timestamp of the reservation and its status (RESERVED, RIDING, EXPIRED, COMPLETED, where COMPLETED means that the driving process has been successfully concluded), so we will assign a medium weight to this entity. The same weight will be applied to RIDE, that saves the references to the reservation and the user, the timpestamp of the ride's beginning, and its status (RIDING, COMPLETED). The most complex entity we have is USER, that saves all the personal infos and contacts (used by the notification component), its balance, and the possibly empty references to the ongoing ride and relative reservation. We will then assign a complex weight to it.
 
 
-ELF: costs: 5 7 10
+-ELF: costs: 5 7 10
 The system interacts with the licence office system, but as explained in the RASD we designed it as an external inquiry: we upload the licence provided by the user retrieving a STRING response. We can then skip the licence office in this section.
 The system also interacts with the payment service, but this interaction works like an external inquiry, so it wont be calculated in this section.
 
-payment system
 
-
-INPUT: costs: 3 4 6
+-INPUT: costs: 3 4 6
 register- Entities involved: user MID 
 The registration involves just the user entity, but since it implies to interact with the licence office system, we will assign a medium weight to this operation.
 
@@ -27,8 +25,8 @@ logout- Entities involved: user SIMPLE
 update licence- Entities involved: user SIMPLE
 These operations just involve the user entity, so we will assign them simple weights
 
-pay- Entities involved: payment, user MID 
-Payment implies the interaction with the payment system through the payment gateway, plus updating the payment and user entities. We will then assign a medium weight to this operation
+pay- Entities involved: payment, user MID-COMPLEX 
+Payment implies the interaction with the payment system through the payment gateway, plus updating the payment and user entities. We will then assign a medium-complex (best-worst case) weight to this operation
 
 reserve car- Entities involved: resv,car,user COMPLEX
 abort reservation- Entities involved: resv,car,user COMPLEX
@@ -45,14 +43,14 @@ This operation involves two entities, mid weight will be assigned.
 [admin] add / remove car- Entities involved: car SIMPLE
 The operation of adding/removing a car will imply other operations in the real world, but according to the system its still a basic operation involving just one entity. Simple weight will be assigned, same for the previous one.
 
-OUTPUT: costs: 4 5 7
+-OUTPUT: costs: 4 5 7
 notify - Entities involved: user COMPLEX 
 Despite how it may sound, notifying events is a quite complex operation in our system. There are different types of notification, different output flows (sms, email, push notification) and many events to be notified; a specific component (NotificationHelper) is designed to dispatch every notification according to its type and user settings.
 
 
-INQUIRY: costs: 3 4 6
-get available cars (zone)- Entities involved: car SIMPLE 
-This operation involves just the car entity, simple weight will be applied
+-INQUIRY: costs: 3 4 6
+get available cars (zone)- Entities involved: car SIMPLE-MID 
+This operation involves just the car entity, simple-medium (best-worst case) weight will be applied
 
 get payment history- Entities involved: payment SIMPLE 
 This operation involves just the payment entity, simple weight will be applied
@@ -63,4 +61,4 @@ This operation involves reservation and user entities but its still a simple one
 get available discounts- Entities involved: discount SIMPLE 
 This operation involves just the discount entity, simple weight will be applied
 
-FP = (4*7 + 2*10 + 1*15) + 0 + (5*3 + 3*4 + 4*6) + 7 + (4*3) = 63 + 50 + 7 + 13 = 133
+FP = (4*7 + 2*10 + 1*15) + 0 + (5*3 + 3*4 + 4*6) ((+2)) + 7 + (4*3) ((+2)) = 63 + 50 + 7 + 13 = 133((+4)) -> best case = 133 , worst case = 137
