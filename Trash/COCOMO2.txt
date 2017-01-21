@@ -72,12 +72,12 @@ RELY Descriptors 				slightlyinconvenience  		easily recoverablelosses  		modera
 Rating level 						Very low 						Low 						Nominal 						High 					Very High 			Extra High
 Effortort multipliers 				0.82 							0.92 						1.00 							1.10 					1.26 				n/a
 
-
+51*133=6738 , upper bound = 73*133=9709
 
 Database size(DATA):
 This factor considers the effective size of our database. We do'nt know this value exactly.But based on the lower and upper bound
-values of the SLOC, which is 10.000-15.000 SLOC, we can estimate roughly that our system can reach a 3GB database size. Since it is
-distributed over 10.000-15.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 209 and 314,
+values of the SLOC, which is 6738-9709 SLOC, we can estimate roughly that our system can reach a 3GB database size. Since it is
+distributed over 6738-9709 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 182 and 276,
 resulting in the DATA cost driver being high.
 
 																	DATA Cost Drivers
@@ -278,17 +278,17 @@ where:
 A = 2.94 ( for COCOMO II )
 EAF = product of all cost drivers(1.13694)
 E = exponent derived from the scale drivers. It is computed as :
-B + 0.01 * (Summation symbol) SF[i] = B + 0.01 * 11.84 = 0.91 + 0.1464 =1.0284  	//[PLEASE SEE THE FORMULA FROM EXAMPLE]
+B + 0.01 * (Summation symbol) SF[i] = B + 0.01 * 11.84 = 0.91 + 0.1184 =1.0284  	//[PLEASE SEE THE FORMULA FROM EXAMPLE]
 in which B is equal to: 0.91 for COCOMO II .
 
 With this parameters we can compute the effort value, which has a lower
 bound of:
 
-Effort = A * EAF * KSLOC^E = 2.94 * 1.13694 *  dash   ^1.0284 =   dash   PM (equivalent symbol) 57 PM
+Effort = A * EAF * KSLOC^E = 2.94 * 1.13694 *  6.738   ^1.0284 =   23.77   PM (equivalent symbol) 24 PM
 
 and an upper bound of:
 
-Effort = A * EAF * KSLOC^E = 2.94 * 1.13694 *   dash  ^1.0284 =  dash     PM (equivalent symbol) 85 PM
+Effort = A * EAF * KSLOC^E = 2.94 * 1.13694 *   9.709  ^1.0284 =  34.61     PM (equivalent symbol) 35 PM
 
 
 
@@ -300,13 +300,15 @@ Duration = 3.67 * Effort^F
 
 As a lower bound, we consider
 
-F = 0.28 + 0 . 2 * (E - B) = 0.28 + 0 . 2 * 0.1464 = 0.30928
-Effort = 56.957 PM
-Duration = 3.67 * ( 56.957 )^ 0.30928 = 12.81 months
+F = 0.28 + 0 . 2 * (E - B) = 0.28 + 0 . 2 * 0.1184 = 0.31368
+Effort = 23.77 PM
+Duration = 3.67 * ( 23.77 )^ 0.31368 = 9.91 months
 
 while as an upper bound, we consider
 
-F = 0.28 + 0 . 2 * (E - B) = 0.28 + 0 . 2 * 0.1464 = 0.30928
-Effort = 84.737 PM
-Duration = 3.67 * (84.737)^ 0.30928 = 14.49 months
+F = 0.28 + 0 . 2 * (E - B) = 0.28 + 0 . 2 * 0.11844 = 0.31368
+Effort = 34.61 PM
+Duration = 3.67 * (34.61)^ 0.31368 = 11.15 months
+
+which seems to be reasonable estimates. Thanks to COCOMO 2.
 
