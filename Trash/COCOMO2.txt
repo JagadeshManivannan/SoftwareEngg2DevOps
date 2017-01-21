@@ -21,7 +21,7 @@ SFj 								5.07 					4.05 						3.04 						2.03 					1.01 						0.00
 RESL 							little(20%)					some(40%)				often(60%)					generally(75%)				mostly(90%)				full(100%)
 SFj 								7.07 					5.65 						4.24 						2.83 					1.41 						0.00
 TEAM 				very difficult interactions	   some difficult interactions	basically cooperative interactions 	largely cooperative highly cooperative 		seamless interactions
-SFj									5.48 					4.38 						3.29 						2.19 					1.10 						0.00 
+SFj									5.48 					4.38 						3.29 						2.19 	 				1.10 						0.00 
 PMAT 						Level 1 Lower				Level 1	Upper					Level 2 					Level 3 				Level 4 				Level 5
 SFj									 7.80 					6.24 						4.68 						3.12 					1.56 						0.00 
 
