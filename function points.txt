@@ -61,4 +61,4 @@ This operation involves reservation and user entities but its still a simple one
 get available discounts- Entities involved: discount SIMPLE 
 This operation involves just the discount entity, simple weight will be applied
 
-FP = (4*7 + 2*10 + 1*15) + 0 + (5*3 + 3*4 + 4*6) ((+2)) + 7 + (4*3) ((+2)) = 63 + 50 + 7 + 13 = 133((+4)) -> best case = 133 , worst case = 137
+FP = (4*7 + 2*10 + 1*15) + 0 + (5*3 + 3*4 + 4*6) ((+2)) + 7 + (4*3) ((+2)) = 63 + 50 + 7 + 13 = 133 -> lower bound = 51*133=6738 , upper bound = 73*133=9709
