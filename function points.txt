@@ -8,7 +8,7 @@ CAR(id,loc, status) SIMPLE
 PARKING(id,car) SIMPLE
 DISCOUNT(id, spec) SIMPLE
 
-The application includes a number of ILFs that will be used to store the information about users, payments, reservations, rides, cars, parking slots and discounts. Most of them have a simple structure consisting in two or three fields, so we will assign simple weights to these entities. Reservation has a more complex structure: it saves the user who creates the reservation, the car involved, the timestamp of the reservation and its status (RESERVED, RIDING, EXPIRED, COMPLETED, where COMPLETED means that the driving process has been successfully concluded), so we will assign a medium weight to this entity. The same weight will be applied to RIDE, that saves the references to the reservation and the user, the timpestamp of the ride's beginning, and its status (RIDING, COMPLETED). The most complex entity we have is USER, that saves all the personal infos and contacts (used by the notification component), its balance, and the possibly empty references to the ongoing ride and relative reservation. We will then assign a complex weight to it.
+The application includes a number of ILFs that will be used to store the information about users, payments, reservations, rides, cars, parking slots and discounts. Their weights will be calculated according to their structure's complexity. Most of them have a simple structure consisting in two or three fields, so we will assign simple weights to these entities. Reservation has a more complex structure: it saves the user who creates the reservation, the car involved, the timestamp of the reservation and its status (RESERVED, RIDING, EXPIRED, COMPLETED, where COMPLETED means that the driving process has been successfully concluded), so we will assign a medium weight to this entity. The same weight will be applied to RIDE, that saves the references to the reservation and the user, the timpestamp of the ride's beginning, and its status (RIDING, COMPLETED). The most complex entity we have is USER, that saves all the personal infos and contacts (used by the notification component), its balance, and the possibly empty references to the ongoing ride and relative reservation. We will then assign a complex weight to it.
 
 
 -ELF: costs: 5 7 10
@@ -25,8 +25,8 @@ logout- Entities involved: user SIMPLE
 update licence- Entities involved: user SIMPLE
 These operations just involve the user entity, so we will assign them simple weights
 
-pay- Entities involved: payment, user MID-COMPLEX 
-Payment implies the interaction with the payment system through the payment gateway, plus updating the payment and user entities. We will then assign a medium-complex (best-worst case) weight to this operation
+pay- Entities involved: payment, user MID
+Payment implies the interaction with the payment system through the payment gateway, plus updating the payment and user entities. We will then assign a medium weight to this operation
 
 reserve car- Entities involved: resv,car,user COMPLEX
 abort reservation- Entities involved: resv,car,user COMPLEX
@@ -37,7 +37,7 @@ end ride- Entities involved: resv,car,user,ride COMPLEX
 These operations involve four entities (reservation, car, user, ride) and as the previous two, these dangerous operations concerning the database integrity. Complex weights will then be assigned.
 
 plug- Entities involved: car,parking MID 
-This operation involves two entities, mid weight will be assigned.
+This operation is not trivial even if just two entities are involved, mid weight will be assigned.
 
 [admin] ban user- Entities involved: user SIMPLE
 [admin] add / remove car- Entities involved: car SIMPLE
@@ -49,16 +49,16 @@ Despite how it may sound, notifying events is a quite complex operation in our s
 
 
 -INQUIRY: costs: 3 4 6
-get available cars (zone)- Entities involved: car SIMPLE-MID 
-This operation involves just the car entity, simple-medium (best-worst case) weight will be applied
+get available cars (zone)- Entities involved: car SIMPLE
+This operation retrieves the available cars given a zone (the visible area in the map). It just involves the car entity, simple weight will then be applied
 
 get payment history- Entities involved: payment SIMPLE 
-This operation involves just the payment entity, simple weight will be applied
+This operation retrieves the history of user's payments. It just involves just the payment entity, simple weight will then be applied
 
 get active reservation- Entities involved: resv,user SIMPLE 
-This operation involves reservation and user entities but its still a simple one, simple weight will then be applied
+This operation retrieves, if there is one, the user's active reseration. It involves reservation and user entities but its still a simple process, simple weight will then be applied
 
 get available discounts- Entities involved: discount SIMPLE 
-This operation involves just the discount entity, simple weight will be applied
+This operation retrieves the list of aailable discounts. It involves just the discount entity, simple weight will be applied
 
 FP = (4*7 + 2*10 + 1*15) + 0 + (5*3 + 3*4 + 4*6) ((+2)) + 7 + (4*3) ((+2)) = 63 + 50 + 7 + 13 = 133 -> lower bound = 51*133=6738 , upper bound = 73*133=9709
