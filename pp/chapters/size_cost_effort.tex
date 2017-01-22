@@ -512,39 +512,41 @@ where:
 \begin{nospaceflalign*}
 	& A = 2.94 \textnormal{ (for COCOMO II)} \phantom{\sum} \\
 	& EAF = 1.13694 \textnormal{ (product of all cost drivers)} \\
-	& E = B + 0.01 \times \sum_{i} SF[i] = B + 0.01 * 11.84 = 0.91 + 0.1464 = 1.0284 \\
+	& E = B + 0.01 \times \sum_{i} SF[i] = B + 0.01 \times 11.84 = 0.91 + 0.1184 = 1.0284 \\
 	& \textnormal{(exponent derived from the scale drivers, with B = 0.91 for COCOMO II)} \\
 \end{nospaceflalign*}
 
 With this parameters we can compute the effort value, which has a lower
 bound of:
 \begin{nospaceflalign*}
-	Effort = A \times EAF \times KSLOC^E & = 2.94 \times 1.13694 \times dash^{1.0284} \\
-	& = 4\textnormal{ PM} \approx dash\textnormal{ PM}
+	Effort = A \times EAF \times KSLOC^E & = 2.94 \times 1.13694 \times 6.738^{1.0284} \\
+	& = 23.77\textnormal{ PM} \approx 24\textnormal{ PM}
 \end{nospaceflalign*}
 and an upper bound of:
 \begin{nospaceflalign*}
-	Effort = A \times EAF \times KSLOC^E & = 2.94 \times 1.13694 \times dash^{1.0284} \\
-	& = 4\textnormal{ PM} \approx dash\textnormal{ PM}
+	Effort = A \times EAF \times KSLOC^E & = 2.94 \times 1.13694 \times 9.709^{1.0284} \\
+	& = 34.61\textnormal{ PM} \approx 35\textnormal{ PM}
 \end{nospaceflalign*}
 
 \subsection{Schedule estimation}
 Regarding the final schedule, we are going to use the following formula:
-\[ Duration = 3.67 \times Effort^F \]
+\begin{nospaceflalign*}
+	Duration = 3.67 \times Effort^F
+\end{nospaceflalign*}
+where:
+\begin{nospaceflalign*}
+	& F = 0.28 + 0.2 \times (E - B) = 0.28 + 0.2 \times 0.1184 = 0.31368 \\
+\end{nospaceflalign*}
 As a lower bound, we consider
 \begin{nospaceflalign*}
-	& F = 0.28 + 0.2 \times (E - B) = 0.28 + 0.2 \times 0.1464 = 0.30928
+	& Effort = 23.77\textnormal{ PM}
 \\
-	& Effort = 56.957\textnormal{ PM}
+	& Duration = 3.67 \times 23.77^{0.31368} = 9.91\textnormal{ months}
 \\
-	& Duration = 3.67 \times 56.957^{0.30928} = 12.81\textnormal{ months} \\
 \end{nospaceflalign*}
 while as an upper bound, we consider
 \begin{nospaceflalign*}
-	& F = 0.28 + 0.2 \times (E - B) = 0.28 + 0.2 \times 0.1464 = 0.30928
+	& Effort = 34.61\textnormal{ PM}
 \\
-	& Effort = 84.737\textnormal{ PM}
-\\
-	& Duration = 3.67 \times 84.737^{0.30928} = 14.49\textnormal{ months}
-\\
+	& Duration = 3.67 \times 34.61^{0.31368} = 11.15\textnormal{ months}
 \end{nospaceflalign*}
