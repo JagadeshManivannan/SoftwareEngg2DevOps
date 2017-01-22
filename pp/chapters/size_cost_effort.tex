@@ -51,17 +51,19 @@ PowerEnJoy supports many kind of interactions, involving different entities, whi
 		EI & Entities involved & Complexity & FPs \\
 		\hline
 		Register & User & Middle & 4 \\
-		Login/Logout & User & Simple & 3 \\
+		Login & User & Simple & 3 \\
+		Logout & User & Simple & 3 \\
 		Update licence & User & Simple & 3 \\
 		Pay & Payment, User & Middle & 4 \\
 		Reserve car & Reservation, Car, User & Complex & 6 \\
 		Abort reservation & Reservation, Car, User & Complex & 6 \\
-		Open car/End ride & Reservation, Car, User, Ride & Complex & 6 \\
+		Open car & Reservation, Car, User, Ride & Complex & 6 \\
+		End ride & Reservation, Car, User, Ride & Complex & 6 \\
 		Plug & Car, Parking & Middle & 4 \\
 		Ban user & User & Simple & 3 \\
 		Add/remove car & Car & Simple & 3 \\
 		\hline
-		\multicolumn{3}{|l|}{Total} & 42 \\
+		\multicolumn{3}{|l|}{Total} & 51 \\
 		\hline	
 	\end{tabular}
 \end{table}
@@ -123,11 +125,11 @@ The following table summarizes the results of our estimation activity:
 		\hline
 		Internal Logic Files & 63 \\
 		External Logic Files & 0 \\
-		External Inputs & 42 \\
+		External Inputs & 51 \\
 		External Inquiries & 12 \\
 		External Outputs & 7 \\
 		\hline
-		Total & 124 \\
+		Total & 133 \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -672,9 +674,9 @@ where:
 \end{nospaceflalign*}
 As a lower bound, we consider
 \begin{nospaceflalign*}
-	& Effort = 23.77\textnormal{ PM}
+	& Effort = 23.94\textnormal{ PM}
 \\
-	& Duration = 3.67 \times 23.77^{0.31368} = 9.91\textnormal{ months}
+	& Duration = 3.67 \times 23.94^{0.31368} = 9.94\textnormal{ months}
 \\
 \end{nospaceflalign*}
 while as an upper bound, we consider
