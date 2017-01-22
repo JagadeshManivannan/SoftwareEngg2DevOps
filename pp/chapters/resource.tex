@@ -1,0 +1,98 @@
+\chapter{Resource allocation}
+
+This chapter has the purpose to show how the available resources are allocated to the project. It does not aim to be a very specific schedule, in fact the tasks are grouped with a high level of abstraction and resources are assigned to these high-level tasks. This is because micromanaging the work of people on a large project is of little use.
+
+The resulting schedule gives to all the team members a general overview on the whole project: every task involves the contribution of each member.
+This enlarges slightly the time needed for the completion of the project, but also induces a greater awareness of all the members of the team.
+It also enables a more accurate control on the work of each other in order to limit the number of bugs and misunderstandings.
+
+The documents to be written related to the project are divided into arguments which mainly reflect the division in chapters; each argument will be assigned to two people and the third will have the duty to revision it.
+
+The code will be divided into tiers which reflect the system architecture. Every tier will be assigned to two people; the third will write and execute unit tests.
+
+The division of the work is elaborated according to the schedule (table~\ref{tab:schedule} and figure~\ref{fig:gantt}).
+
+Tables \ref{tab:rasd-alloc}, \ref{tab:dd-alloc}, \ref{tab:itpd-alloc}, \ref{tab:planning-alloc}, \ref{tab:presentation-alloc} show the division of work among the team members.
+
+\begin{table}[H]
+	\begin{tabular}{|l|p{2.35cm}|p{2.35cm}|p{2.35cm}|p{2.35cm}|}
+		\hline
+			\multirow{2}{*}{Resource} & \multicolumn{4}{c|}{\textbf{16/10/2016 to 13/11/2016}} \\
+			\cline{2-5}
+			& $1^{st}$ week & $2^{nd}$ week & $3^{rd} $ week & $4^{th}$ week \\
+			\hline
+			Fabiani & Introduction & Overall description & System features & Revision specification requirements \\
+			Manivannan & Overall description & Specification requirements & System features & Revision introduction \\
+			Pozzolini & Specification requirements & Introduction & Revision overall description  & Revision System features  \\
+			\hline
+		\end{tabular}
+	\caption{Resource allocation for RASD}
+	\label{tab:rasd-alloc}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabular}{|l|p{2.35cm}|p{2.35cm}|p{2.35cm}|p{2.35cm}|}
+			\hline
+			\multirow{2}{*}{Resource} & \multicolumn{4}{c|}{\textbf{14/11/2016 to 11/12/2016}} \\
+			\cline{2-5}
+			& $1^{st}$ week & $2^{nd}$ week & $3^{rd} $ week & $4^{th}$ week \\
+			\hline
+			Fabiani & Architectural design & Algorithm design & UI design & Revision introduction \\
+			Manivannan & Algorithms & Introduction - Requirements traceability & Revision Architectural design & Revision UI design \\
+			Pozzolini & Requirements traceability & Architectural design & UI design & Revision algorithms \\
+			\hline
+		\end{tabular}
+	\caption{Resource allocation for DD}
+	\label{tab:dd-alloc}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{2.35cm}|p{2.35cm}|p{2.35cm}|p{2.35cm}|}
+		\hline
+		\multirow{2}{*}{Resource} & \multicolumn{4}{c|}{\textbf{12/12/2016 to 15/01/2017}} \\
+		\cline{2-5}
+		& $1^{st}$ week & $2^{nd}$ week & $3^{rd} $ week & $4^{th}$ week \\
+		\hline
+		Fabiani & \multicolumn{2}{l|}{Integration strategy} & \multicolumn{2}{l|}{Individual steps} \\
+		Manivannan & \multicolumn{2}{l|}{Introduction - minor chapters} & \multicolumn{2}{l|}{Individual steps} \\
+		Pozzolini & \multicolumn{2}{l|}{Individual steps} & \multicolumn{2}{l|}{Revision individual steps} \\
+		\hline
+	\end{tabular}
+	\caption{Resource allocation for ITPD}
+	\label{tab:itpd-alloc}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\multirow{2}{*}{Resource} & \multicolumn{2}{c|}{\textbf{05/01/2017 to 22/01/2017}} \\
+		\cline{2-3}
+		& $1_{st}$ week & $2_{nd}$ week \\
+		\hline
+		Fabiani & Cocomo II    & Risk      \\
+		Manivannan & Functions points     & Resource allocation    \\
+		Pozzolini & Cocomo II    & Task and schedule    \\
+		\hline
+	\end{tabular}
+	\caption{Resource allocation for PP document}
+	\label{tab:planning-alloc}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{3cm}|p{3cm}|}
+		\hline
+		\multirow{2}{*}{Resource} & \multicolumn{2}{c|}{\textbf{04/02/2017 to 20/02/2017}} \\
+		\cline{2-3}
+		& $1^{st}$ week & $2^{nd}$ week \\
+		\hline
+		Fabiani & Slides & Revision slides \\
+		Manivannan & Slides & Revision slides \\
+		Pozzolini & Slides & Revision slides \\
+		\hline
+	\end{tabular}
+	\caption{Resource allocation for presentation}
+	\label{tab:presentation-alloc}
+\end{table}
