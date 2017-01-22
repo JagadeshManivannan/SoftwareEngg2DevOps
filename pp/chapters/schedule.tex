@@ -23,7 +23,7 @@ The first five tasks for the project are already defined by the document about d
 	\label{fig:dag_tasks}
 \end{figure}
 
-There are no fixed deadlines, instead, for the development of the software. Based on the COCOMO estimation performed in chapter 2, we expect the entire project to last 8 months, so it will be presumably finished by June 2017. The schedule for our project is outlined in table~\ref{tab:schedule}, while figure~\ref{fig:gantt} shows the Gantt chart for PowerEnJoy.
+There are no fixed deadlines, instead, for the development of the software. Based on the COCOMO estimation performed in chapter 2, we expect the entire project to last about 10 months, so it will be presumably finished by August 2017. The schedule for our project is outlined in table~\ref{tab:schedule}, while figure~\ref{fig:gantt} shows the Gantt chart for PowerEnJoy.
 
 \begin{table}[H]
 	\centering
@@ -35,9 +35,9 @@ There are no fixed deadlines, instead, for the development of the software. Base
 		DD & 14/11/2016 & 11/12/2016 \\
 		IPTD & 12/12/2016 & 15/01/2017 \\
 		Project Plan & 05/01/2017 & 22/01/2017 \\
-		Presentation &  &  \\
-		Implementation &   &  \\
-		Integration testing &   &  \\
+		Presentation & 23/01/2017 & 20/02/2017 \\
+		Implementation & 21/02/2017 & 26/07/2017 \\
+		Integration testing & 27/07/2017 & 20/08/2017 \\
 		\hline	
 	\end{tabular}
 
@@ -51,22 +51,22 @@ There are no fixed deadlines, instead, for the development of the software. Base
 		\begin{ganttchart}[
 			vgrid={*{6}{draw=none},dotted},
 			time slot format=isodate,
-			x unit=0.7mm,
+			x unit=0.6mm,
 			today=2017-01-22,
 			today rule/.style= {ultra thick},
 			today label=Today,
 			link bulge=6, link tolerance=5,
 			bar inline label node/.style={font=\scriptsize},
 			inline
-			]{2016-10-01}{2017-06-30}
+			]{2016-10-01}{2017-08-31}
 			\gantttitlecalendar{year,month=name} \\
 			\ganttbar[name=rasd]{RASD}{2016-10-16}{2016-11-13} \\
 			\ganttbar[name=dd]{DD}{2016-11-14}{2016-12-11} \\
 			\ganttbar[name=itpd]{ITPD}{2016-12-12}{2017-01-15} \\
 			\ganttbar[name=pp]{PP}{2017-01-05}{2017-01-22} \\
-			\ganttbar[name=pres]{Presentation}{2017-01-24}{2017-02-18} \\
-			\ganttbar[name=impl]{Implementation}{2017-02-19}{2017-06-01} \\
-			\ganttbar[name=int-test]{Int. Test.}{2017-06-01}{2017-06-20}
+			\ganttbar[name=pres]{Presentation}{2017-01-23}{2017-02-20} \\
+			\ganttbar[name=impl]{Implementation}{2017-02-21}{2017-07-26} \\
+			\ganttbar[name=int-test]{Int. Test.}{2017-07-27}{2017-08-20}
 			\ganttlink{rasd}{dd}
 			\ganttlink{dd}{itpd}
 			\ganttlink{impl}{int-test}
