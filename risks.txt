@@ -1,14 +1,5 @@
-The work concerning the integration of the payment system remains quite
-vague at the time of the planning. As a consequence, it is not possible to estimate, with a
-reasonable level of confidence, that the needed effort remains low. To mitigate this risk the project
-manager decides to apply an higher weight to that task.
-
-
-The database implements an important number of tables and and intense query execution, so the integrity plays an important role. Experts should be involved (to be continued)
-OTHER DB RELATED RISKS SHOULD BE EXPOSED
-
-
-
-
-
+Project scheduling could be an important source of problems. The schedule defined in the Project Plan can't of course forecast every possible issue that may occur during the following steps. To mitigate this kind of risk, some extra time has been allocated to the most critical activities to allow for adjustments. One of them concerns the payment platform.
+The work concerning the integration of the payment system remains quite vague at the time of the planning. As a consequence, it is not possible to estimate, with a reasonable level of confidence, that the needed effort remains low. To mitigate this risk we decided to apply an higher weight to that task in the Function Points calculation.
+Also changes in the environment, both inside and outside our company, may be sources of problems. The main threat coming from the outside are law changes in our sector; notwithstanding we estimate this risk to be very low, even if very dangerous if it would occur. The positive side is that the law -at least in this country- moves so slow that we will have much time to build up a strategy -that obviously can't be thought in advance.
+From the inside the main threat is the fluctuating IT job market. We must build up a team able to fulfill each task even if some member will be absent for a prolungated period of time. The point then is to avoid to have "key members", or at least to put beside them other people to learn the job. The only task where we can accept to have key members is the database interactions inspection.  Our database infact implements an important number of tables and and intense query execution, so the integrity plays an important role. Experts should then be involved if not present in the team.
 
