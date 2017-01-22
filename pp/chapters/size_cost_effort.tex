@@ -2,6 +2,139 @@
 
 \section{Size estimation}
 
+\subsection{Internal logic files (ILFs)}
+The application includes a number of ILFs that will be used to store the information about users, payments, reservations, rides, cars, parking slots and discounts. Their weights will be calculated according to their structure's complexity. Most of them have a simple structure consisting in two or three fields, so we will assign simple weights to these entities.
+
+Reservation has a more complex structure: it saves the user who creates the reservation, the car involved, the timestamp of the reservation and its status (RESERVED, RIDING, EXPIRED, COMPLETED, where COMPLETED means that the driving process has been successfully concluded), so we will assign a medium weight to this entity. The same weight will be applied to RIDE, that saves the references to the reservation and the user, the timpestamp of the ride's beginning, and its status (RIDING, COMPLETED).
+
+The most complex entity we have is USER, that saves all the personal infos and contacts (used by the notification component), its balance, and the possibly empty references to the ongoing ride and relative reservation. We will then assign a complex weight to it.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		ILF & Complexity & FPs \\
+		\hline
+		RESERVATION(user, car, time, status) & Medium & 10 \\
+		RIDE(user, resv, starttime, status) & Medium & 10 \\
+		USER(data, balance, resv, ride) & Complex & 15 \\
+		PAYMENT(user, amount) & Simple & 7 \\
+		CAR(id, loc, status) & Simple & 7 \\
+		PARKING(id, car) & Simple & 7 \\
+		DISCOUNT(id, spec) & Simple & 7 \\
+		\hline
+		\multicolumn{2}{|l|}{Total} & 63 \\
+		\hline	
+	\end{tabular}
+\end{table}
+
+\subsection{External Logic Files (ELFs)}
+The system interacts with the licence office system, but as explained in the RASD we designed it as an external inquiry: we upload the licence provided by the user retrieving a STRING response. We can then skip the licence office in this section.
+The system also interacts with the payment service, but this interaction works like an external inquiry, so it won't be calculated in this section.
+
+\subsection{External Inputs (EIs)}
+PowerEnJoy supports many kind of interactions, involving different entities, which are described below.
+\begin{itemize}
+	\item \emph{Register}: the registration involves just the user entity, but since it implies to interact with the licence office system, we will assign a medium weight to this operation.
+	\item \emph{Login, logout, update licence}: these operations just involve the user entity, so we will assign them simple weights.
+	\item \emph{Pay}: payment implies the interaction with the payment system through the payment gateway, plus updating the payment and user entities. We will then assign a medium weight to this operation.
+	\item \emph{Reserve car, abort reservation}: these operations involve three entities (reservation, car, user) and are two of the most dangerous operations concerning the database integrity. Complex weights will then be assigned.
+	\item \emph{Open car, end ride}: these operations involve four entities (reservation, car, user, ride) and as the previous two, these dangerous operations concerning the database integrity. Complex weights will then be assigned.
+	\item \emph{Plug}: this operation is not trivial even if just two entities are involved, mid weight will be assigned.
+	\item \emph{Ban user, add/remove car}: the operations of adding/removing a car or banning a user (possible only for admin users) will imply other operations in the real world, but according to the system its still a basic operation involving just one entity. Simple weight will be assigned.
+\end{itemize}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		EI & Entities involved & Complexity & FPs \\
+		\hline
+		Register & User & Middle & 4 \\
+		Login/Logout & User & Simple & 3 \\
+		Update licence & User & Simple & 3 \\
+		Pay & Payment, User & Middle & 4 \\
+		Reserve car & Reservation, Car, User & Complex & 6 \\
+		Abort reservation & Reservation, Car, User & Complex & 6 \\
+		Open car/End ride & Reservation, Car, User, Ride & Complex & 6 \\
+		Plug & Car, Parking & Middle & 4 \\
+		Ban user & User & Simple & 3 \\
+		Add/remove car & Car & Simple & 3 \\
+		\hline
+		\multicolumn{3}{|l|}{Total} & 42 \\
+		\hline	
+	\end{tabular}
+\end{table}
+
+\subsection{External Inquiries (EQs)}
+As specified by the function points guidelines, an inquiry is essentially a data retrieval
+request performed by an user. PowerEnJoy supports a few interactions of this type that don’t require
+complex computations:
+\begin{itemize}
+	\item \emph{Get available cars (zone)}: this operation retrieves the available cars given a zone (the visible area in the map). It just involves the car entity, simple weight will then be applied.
+	\item \emph{Get payment history}: this operation retrieves the history of user's payments. It just involves just the payment entity, simple weight will then be applied.
+	\item \emph{Get active reservation}: this operation retrieves, if there is one, the user's active reservation It involves reservation and user entities but its still a simple process, simple weight will then be applied.
+	\item \emph{Get available discounts}: this operation retrieves the list of available discounts. It involves just the discount entity, simple weight will be applied.
+\end{itemize}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		EQ & Entities involved & Complexity & FPs \\
+		\hline
+		Get available cars (zone) & Car & Simple & 3 \\
+		Get payment history & Payment & Simple & 3 \\
+		Get active reservation & Reservation, User & Simple & 3 \\
+		Get available discounts & Discount & Simple & 3 \\
+		\hline
+		\multicolumn{3}{|l|}{Total} & 12 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsection{External Outputs (EOs)}
+As part of its normal behaviour, our system needs to communicate with the user outside the context of an inquiry in the following occasion:
+\begin{itemize}
+	\item \emph{Notify}: Despite how it may sound, notifying events is a quite complex operation in our system. There are different types of notification, different output flows (SMS, e-mail, push notification) and many events to be notified; a specific component (NotificationHelper) is designed to dispatch every notification according to its type and user settings.
+\end{itemize}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		EO & Entities involved & Complexity & FPs \\
+		\hline
+		Notify & User & Complex & 7 \\
+		\hline
+		\multicolumn{3}{|l|}{Total} & 7 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsection{Overall estimation}
+The following table summarizes the results of our estimation activity:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		Function type & Value \\
+		\hline
+		Internal Logic Files & 63 \\
+		External Logic Files & 0 \\
+		External Inputs & 42 \\
+		External Inquiries & 12 \\
+		External Outputs & 7 \\
+		\hline
+		Total & 124 \\
+		\hline
+	\end{tabular}
+\end{table}
+Considering Java Enterprise Edition as a development platform and disregarding the aspects concerning the implementation of the mobile applications (which can be thought as pure presentation with no business logic), we can estimate the total number of lines of code.
+
+Depending on the conversion rate, we have a lower bound of \[KSLOC = 133 \times 51 = 6783\] and an upper bound of \[KSLOC = 133 \times 73 = 9709\]
+
 \section{Cost and effort estimation}
 In this section we are going to use the COCOMO II approach to estimate the
 cost and effort needed to develop the PowerEnJoy application.
@@ -519,8 +652,8 @@ where:
 With this parameters we can compute the effort value, which has a lower
 bound of:
 \begin{nospaceflalign*}
-	Effort = A \times EAF \times KSLOC^E & = 2.94 \times 1.13694 \times 6.738^{1.0284} \\
-	& = 23.77\textnormal{ PM} \approx 24\textnormal{ PM}
+	Effort = A \times EAF \times KSLOC^E & = 2.94 \times 1.13694 \times 6.783^{1.0284} \\
+	& = 23.94\textnormal{ PM} \approx 24\textnormal{ PM}
 \end{nospaceflalign*}
 and an upper bound of:
 \begin{nospaceflalign*}
