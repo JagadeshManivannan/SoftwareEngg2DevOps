@@ -135,7 +135,7 @@ The following table summarizes the results of our estimation activity:
 \end{table}
 Considering Java Enterprise Edition as a development platform and disregarding the aspects concerning the implementation of the mobile applications (which can be thought as pure presentation with no business logic), we can estimate the total number of lines of code.
 
-Depending on the conversion rate, we have a lower bound of \[KSLOC = 133 \times 51 = 6783\] and an upper bound of \[KSLOC = 133 \times 73 = 9709\]
+Depending on the conversion rate, we have a lower bound of \[SLOC = 133 \times 51 = 6783\] and an upper bound of \[SLOC = 133 \times 73 = 9709\]
 
 \section{Cost and effort estimation}
 In this section we are going to use the COCOMO II approach to estimate the
@@ -232,10 +232,7 @@ The results of our evaluation is the following:
 \begin{itemize}
 	\item \emph{Database size (DATA)}:
 	\begin{itemize}
-		 \item[] This factor considers the effective size of our database. We do'nt know this value exactly. But based on the lower and upper bound
-values of the SLOC, which is 10.000-15.000 SLOC, we can estimate roughly that our system can reach a 3GB database size. Since it is
-distributed over 10.000-15.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 209 and 314,
-resulting in the DATA cost driver being high.
+		 \item[] This factor considers the effective size of our database. We do'nt know this value exactly. But based on the lower and upper bound values of the SLOC, which is 6.783-9.709 SLOC, we can estimate roughly that our system can reach a 3GB database size. Since it is distributed over 6.783-9.709 SLOC, the ratio \(\frac{D}{P}\) (measured as testing DB bytes/program SLOC) is between 209 and 314, resulting in the DATA cost driver being high.
 	\end{itemize}
 \end{itemize}
 
