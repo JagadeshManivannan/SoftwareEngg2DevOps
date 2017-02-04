@@ -1,0 +1,58 @@
+2.2 Indention:
+
+ \item \ The entire code given for inspection is indented properly with not more than 4 spaces and no tabs were used.
+  
+2.5 Wrapping lines:
+
+ \item \textbf{C17- L161} The "else if" statement is not aligned with the beginning of the expression at the same level. 
+as the previous line. 
+	
+\item \textbf{C17- L132,88,179,186,196,205,276,308,430,462} The "catch" statement is not aligned at the same level. This could be avoided either during the 
+code development by proper checking.
+
+\item \textbf{C17- L189,350,360,506,516}The "else" statement is not aligned at the same level. This could be avoided either during the 
+code development by proper checking.
+
+
+
+2.8 Package and import statements:
+ 
+\item  The package and import statements were found in the correct order as per the code inspection document.
+ 
+ 
+ 2.9 Class and Interface Declarations
+
+\item The class or interface declarations order is followed correctly.
+
+\item \textbf{C27- L-224,378} Both the "switch" blocks are a copy paste in our service which paves way for duplicates. But this is quite preferrable 
+here rather than using different piece of code for the same logical implementation (i.e. for a better understanding).
+
+\item \textbf{C27- L218,271,301,344,372,425,455,500) All the methods are long(more than 10 lines and some mothods are even more than 20 lines.
+This should be optimized by using fewer conditional checks covering all the requirements.
+
+\item \textbf{C26}- All the methods are grouped by functionality rather than by scope or accessibility.
+
+(E) INSTANCE VARIABLES;-L-220-HERE THE INSTANCE VARIABLES SHOULD BE PLACED ONE LINE BEFORE THE MAP DECLARATION.-- NOT SURE.
+
+2.14 OUTPUT FORMAT
+
+ \item The error messages are comprehensive and are in-line as per the code inspection document.
+  
+ 2.17Flow of control:
+ 
+ \item  All swich statements are addressed by a break.
+ 
+\item \textbf{C55-L-224,378} There is no default branch for any of the swith statements. The solutions we suggest for this problem is to leave the code 
+undisturbed, because all the days are present in the switch cases such that it executes any one of the switch case and so no default is needed. Without
+knowing the dayStart or dayEnd it would be wrong to define a default branch here.
+
+ 	
+Other Errors found during Code inspection:
+
+Imports:
+ 
+ \item \textbf{General-L261,284,317,328,415,438,471,483} - no import statement used for Integer. Import that has to be used here was: java.lang.Integer or import java.lang.* can be used .
+ \item \textbf{General-L221,287,356,375,441,472,512}- no import for Double was done. java.lang.Double or import java.lang.* could have solved the issue.
+ \item \textbf{General-L-418,448,264,394,336}-TechDataCalenda- the spelling has to be corrected here.
+
+
