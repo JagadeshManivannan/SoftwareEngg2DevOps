@@ -1,10 +1,7 @@
-C11 Many lines contain if statements containing only one statement, not surrounded by curly braces: 50, 51, 53, 55, 58, 60, 144, 146, 147, 285, 289, 291, 329, 350, 360, 439, 443, 445, 485, 506, 516.
-
-C18 While methods are well explained ("field knowledge" is still needed to understand), the class entirely lacks the description.
-
-C19 Four TODO comments are present in the code. The ones at lines 96-97 are poorly explained and lack the removal time. The ones at lines 273-280 are better explained but still no date.
-
-C40 We can find the unappropriate use of '==' and '!=' for object comparison many times in the code. The list of the lines: (structure: (line-comparison type))
+\item \textbf{C11} Many lines contain if statements containing only one statement, not surrounded by curly braces: 50, 51, 53, 55, 58, 60, 144, 146, 147, 285, 289, 291, 329, 350, 360, 439, 443, 445, 485, 506, 516.
+\item \textbf{C18} While methods are well explained ("field knowledge" is still needed to understand), the class entirely lacks the description.
+\item \textbf{C19} Four TODO comments are present in the code. The ones at lines 96-97 are poorly explained and lack the removal time. The ones at lines 273-280 are better explained but still no date.
+\item \textbf{C40} We can find the unappropriate use of '==' and '!=' for object comparison many times in the code. The list of the lines: (structure: (line-comparison type))
 92-LinkedList
 124-String
 137-List
@@ -15,5 +12,4 @@ Lines 144-157 contains many Timestamp comparison.
 201-TechDataCalendar
 223-Double
 377-Double
-
-C44 At lines 224 and 378 we can find two switch loops that could be considered brutish programming. Anyway since the switch loop cycles constants, I think that adopting a String vector to replace it, would damage the readability.
+\item \textbf{C44} At lines 224 and 378 we can find two switch loops that could be considered brutish programming. Anyway since the switch loop cycles constants, I think that adopting a String vector to replace it, would damage the readability.
