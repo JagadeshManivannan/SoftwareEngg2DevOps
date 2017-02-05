@@ -1,0 +1,24 @@
+
+Introduction
+
+ The TechDataServices.java is the class given for us for code inspection. Before executing our code inspection, a basic understanding of the code
+was required. From our study of the code, the TechDataServices.java class performs the following operations in the below mentioned sequence:
+*Retrieves some RoutingTasks selected by Name or MachineGroup ordered by Name.
+*Checks if there are no two routing tasks with the same SeqId are valid at the same period.
+*Gets the techDataCalendar for a routingTask, if there is a routingTask associated with no MachineGroup the DEFAULT TechDataCalendar is returned.
+*Finds the fisrt day in the TechDataCalendarWeek where capacity != 0, beginning at dayStart (dayStart included).
+*Requests the remain capacity available for dateFrom in a TechDataCalendar.
+ If the dateFrom is not  in an available TechDataCalendar period,it returns zero value .
+*Moves a day in TechDataCalendar, by producing the Timestamp for the begining of the next day available and its associated capacity.
+ If the dateFrom is not in an available TechDataCalendar period,it returns the next day available.
+*Moves forward in a TechDataCalendar, starting from the dateFrom and moves forward only on available period.
+ If the dateFrom is not an available TechDataCalendar period, the startDate is the begining of the next available day.
+*Finds the last day in the TechDataCalendarWeek where capacity != 0, ending at dayEnd (dayEnd included).
+*Requests the remain capacity available for dateFrom in a TechDataCalendar.
+ If the dateFrom is not  in an available TechDataCalendar period,it returns zero value .
+*Moves a day in TechDataCalendar, by producing the Timestamp for the end of previous day available and its associated capacity.
+ If the dateFrom is not in an available TechDataCalendar period,it returns the previous day available.
+*Moves backward in a TechDataCalendar, starting from the dateFrom and moves backward only on available period.
+ If the dateFrom is not an available TechDataCalendar period, the startDate is the end of previous available day.
+ 
+	These are just some routing checks that are performed and the methods of this class is implicitly used or called by other classes (from other packages).
