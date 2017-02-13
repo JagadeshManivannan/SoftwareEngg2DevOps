@@ -1,0 +1,47 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+	\usetheme{Madrid}
+	\usecolortheme{orchid}
+	\setbeamertemplate{navigation symbols}{}
+}
+
+\AtBeginSection[]{
+	\definecolor{custom}{RGB}{163,204,246}
+	\setbeamercolor{background canvas}{bg=custom}
+	\begin{frame}
+		\vfill
+		\centering
+		\begin{beamercolorbox}[sep=8pt,center,rounded=true]{title}
+			\usebeamerfont{title}\textbf{\insertsectionhead}
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+	\setbeamercolor{background canvas}{bg=white}
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+
+\newcommand\itemtext[2]{
+	\expandafter\gdef\csname item#1\endcsname{#2}
+	\label{#1}#2}
+
+\title[PowerEnJoy]{Software Engineering 2: PowerEnJoy}
+\author[Fabiani, Manivannan, Pozzolini]{Francesco Fabiani \\ Jagadesh Manivannan \\ Niccolò Pozzolini}
+\institute[]{Politecnico di Milano}
+\date{February 14, 2017}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Contents}
+	\tableofcontents
+\end{frame}
+
+\include{sections/pres_rasd}
