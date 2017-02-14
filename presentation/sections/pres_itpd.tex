@@ -29,9 +29,10 @@
 
 \begin{frame}
 	\frametitle{Components}
+	\vspace*{-0.5cm}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[height=9.5cm,keepaspectratio,angle=270]{figures/components_controller.eps}
+		\includegraphics[height=10.5cm,keepaspectratio,angle=270]{figures/components_controller.eps}
 		\label{fig:components_controller}
 	\end{figure}
 \end{frame}
@@ -65,34 +66,6 @@
 			A valid car & ReservationController will invoke AvailabilityHelper.changeTagRequest() and get the response R. R is then returned. \\
 			\hline
 			A null or invalid car & A NullCarException or InvalidCarException is generated. \\
-			\hline
-		\end{tabular*}
-	\end{table}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Test Procedures}
-	\begin{table}[H]
-		\centering
-		\begin{tabular*}{\textwidth}{p{4.4cm} @{\extracolsep{0.5cm}} p{6.7cm}}
-			\hline
-			\textbf{Test procedure identifier} & TP1 \\
-			\hline
-			\textbf{Purpose} & It checks whether the system correctly manages database records maintaining data consistency and receive requests from the client and properly execute them. \\
-			\hline
-			\textbf{Procedure steps} & Execute I1-I6 \\
-			\hline
-		\end{tabular*}
-	\end{table}
-	\begin{table}[H]
-		\centering
-		\begin{tabular*}{\textwidth}{p{4.4cm} @{\extracolsep{0.5cm}} p{6.7cm}}
-			\hline
-			\textbf{Test procedure identifier} & TP2 \\
-			\hline
-			\textbf{Purpose} & It checks whether the system can properly dispatch user notifications and warnings, according to the notification type. \\
-			\hline
-			\textbf{Procedure steps} & Execute I7-I9 \\
 			\hline
 		\end{tabular*}
 	\end{table}

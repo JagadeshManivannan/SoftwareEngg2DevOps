@@ -1,0 +1,161 @@
+\section{Project Plan}
+
+\begin{frame}
+	\frametitle{Function Points}
+	\begin{columns}
+		\column{.5\textwidth}
+		\begin{table}[H]
+			\footnotesize
+			\centering
+			\begin{tabular}{|p{2cm}|p{0.6cm}|p{1.1cm}|p{0.45cm}|}
+				\hline
+				Function & Type & Compl. & FPs \\
+				\hline
+				Reservation & ILF & Medium & 10 \\
+				Ride & ILF & Medium & 10 \\
+				User & ILF & Complex & 15 \\
+				Payment & ILF & Simple & 7 \\
+				Car & ILF & Simple & 7 \\
+				Parking & ILF & Simple & 7 \\
+				Discount & ILF & Simple & 7 \\
+				Get available cars (zone) & EQ & Simple & 3 \\
+				Get payment history & EQ & Simple & 3 \\
+				Get active res-ervation & EQ & Simple & 3 \\
+				Get available discounts & EQ & Simple & 3 \\
+				Notify & EO & Complex & 7 \\
+				\hline
+			\end{tabular}
+		\end{table}
+		\column{.5\textwidth}	
+		\begin{table}[H]
+			\footnotesize
+			\centering
+			\begin{tabular}{|p{2cm}|p{0.6cm}|p{1.1cm}|p{0.45cm}|}
+				\hline
+				Function & Type & Compl. & FPs \\
+				\hline
+				Register & EI & Middle & 4 \\
+				Login & EI & Simple & 3 \\
+				Logout & EI & Simple & 3 \\
+				Update licence & EI & Simple & 3 \\
+				Pay & EI & Middle & 4 \\
+				Reserve car & EI & Complex & 6 \\
+				Abort reservation & EI & Complex & 6 \\
+				Open car & EI & Complex & 6 \\
+				End ride & EI & Complex & 6 \\
+				Plug & EI & Middle & 4 \\
+				Ban user & EI & Simple & 3 \\
+				Add/remove car & EI & Simple & 3 \\\hline
+			\end{tabular}
+		\end{table}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Source Lines of Code}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|}
+			\hline
+			Function type & Value \\
+			\hline
+			Internal Logic Files (ILF) & 63 \\
+			External Logic Files (ELF) & 0 \\
+			External Inputs (EI) & 51 \\
+			External Inquiries (EQ) & 12 \\
+			External Outputs (EO) & 7 \\
+			\hline
+			Total & 133 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\begin{itemize}
+		\centering
+		\item Lower bound: \(SLOC = 133 \times 51 = 6783\)
+		\item Upper bound: \(SLOC = 133 \times 73 = 9709\)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{COCOMO}
+	\begin{table}[H]
+		\small
+		\centering
+		\vspace*{-0.2cm}
+		\begin{tabular}{|l|r|r|}
+			\hline
+			Cost Driver & Factor & Value \\
+			\hline
+			Required software reliability (RELY) & High & 1.10 \\
+			Database size (DATA) & High & 1.14 \\ Product complexity (CPLX) & Very high & 1.34 \\
+			Required reusability (RUSE) & Nominal & 1.00 \\
+			Documentation match to life-cycle needs (DOCU) & Nominal & 1.00 \\
+			Execution time constraint (TIME) & Very high & 1.29 \\
+			Main storage constraint (STOR) & High & 1.11 \\
+			Platform volatility (PVOL) & Nominal & 1.00 \\
+			Analyst capability (ACAP) & High & 0.85 \\
+			Programmer capability (PCAP) & High & 0.88 \\
+			Application experience (APEX) & High & 0.88 \\
+			Platform Experience (PLEX) & High & 0.91 \\
+			Language and Tool Experience (LTEX) & High & 0.91 \\
+			Personnel continuity (PCON) & Very low & 1.12 \\
+			Usage of Software Tools (TOOL) & High & 0.90 \\
+			Multisite development (SITE) & Very high & 0.86 \\
+			Required development schedule (SCED) & High & 1.00 \\
+			\hline
+			\multicolumn{2}{|l|}{Total} & 1.13694 \\
+			\hline	
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Effort and Duration}
+	\[ \textbf{Effort} = 2.91 \times EAF \times KSLOC^E \]
+	\( EAF = 1.13694 \textnormal{ (product of all cost drivers)} \)
+	\( E = B + 0.01 \times \sum_{i} SF[i] = B + 0.01 \times 11.84 = 0.91 + 0.1184 = 1.0284 \)
+	\begin{itemize}
+		\item LB: \( Effort = 2.94 \times 1.13694 \times 6.783^{1.0284} = 23.94\textnormal{ PM} \approx 24\textnormal{ PM} \)
+		\item UP: \( Effort = 2.94 \times 1.13694 \times 9.709^{1.0284} = 34.61\textnormal{ PM} \approx 35\textnormal{ PM} \)
+	\end{itemize}
+
+	\[ \textbf{Duration} = 3.67 \times Effort^F \]
+	\( F = 0.28 + 0.2 \times (E - B) = 0.28 + 0.2 \times 0.1184 = 0.31368 \)
+	\begin{itemize}
+		\item LB: \( Duration = 3.67 \times 23.94^{0.31368} = 9.94\textnormal{ months} \)
+		\item UB: \( Duration = 3.67 \times 34.61^{0.31368} = 11.15\textnormal{ months} \)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Gantt Chart}
+	\begin{figure}[H]
+	\centering
+		\begin{ganttchart}[
+			vgrid={*{6}{draw=none},dotted},
+			time slot format=isodate,
+			x unit=0.35mm,
+			y unit chart=7.3mm,
+			today=2017-02-14,
+			today rule/.style= {ultra thick},
+			today label=Today,
+			link bulge=6, link tolerance=5,
+			bar inline label node/.style={font=\scriptsize},
+			inline
+			]{2016-10-01}{2017-08-31}
+			\gantttitlecalendar{year,month} \\
+			\ganttbar[name=rasd]{RASD}{2016-10-16}{2016-11-13} \\
+			\ganttbar[name=dd]{DD}{2016-11-14}{2016-12-11} \\
+			\ganttbar[name=itpd]{ITPD}{2016-12-12}{2017-01-15} \\
+			\ganttbar[name=pp]{PP}{2017-01-05}{2017-01-22} \\
+			\ganttbar[name=pres]{Pres.}{2017-01-23}{2017-02-14} \\
+			\ganttbar[name=impl]{Implementation}{2017-02-15}{2017-07-26} \\
+			\ganttbar[name=int-test]{Test}{2017-07-27}{2017-08-20}
+			\ganttlink{rasd}{dd}
+			\ganttlink{dd}{itpd}
+			\ganttlink{impl}{int-test}
+		\end{ganttchart}
+	
+		\label{fig:gantt}
+	\end{figure}
+\end{frame}
